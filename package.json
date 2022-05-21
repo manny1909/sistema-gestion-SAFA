@@ -1,0 +1,25 @@
+{
+  "name": "sistema-gestion-safa",
+  "version": "1.0.0",
+  "description": "Sistema para la gestion de una facción de GTA SAMP en la cual se controlara usuarios, gestiones realizadas, ascensos, descensos y automatizar todo lo que actualmente se hace a mano",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manny1909/sistema-gestion-SAFA.git"
+  },
+  "keywords": [
+    "SAFA",
+    "gestion",
+    "angular",
+    "node."
+  ],
+  "author": "manny1909, DarkFlamebg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manny1909/sistema-gestion-SAFA/issues"
+  },
+  "homepage": "https://github.com/manny1909/sistema-gestion-SAFA#readme"
+}
