@@ -14,10 +14,10 @@ app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
+//static files
+app.use(express.static('public'))
 //routes
 app.use(apiPaths.usuarios,indexRouter)
-//static files
-app.use(express.static('./public'))
 //starting server
 app.set('listen',()=>{
     const port:string=process.env.PORT || '3000'
