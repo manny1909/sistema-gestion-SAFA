@@ -8,10 +8,7 @@ const miembroSchema=new Schema({
         type:Types.ObjectId, 
         ref:'Rango'
     },
-    rol:{
-        type:Types.ObjectId, 
-        ref:'Rol'
-    },
+    
 
 })
 const miembroModel:Model<any>= model('Miembro', miembroSchema)

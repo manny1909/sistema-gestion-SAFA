@@ -1,5 +1,9 @@
 import {Schema, SchemaTypes, Types, model, Model} from 'mongoose';
 const userSchema=new Schema({
+    rol:{
+        type:Types.ObjectId, 
+        ref:'Rol'
+    },
     nombre: {
         type: SchemaTypes.String,
         required:true,
