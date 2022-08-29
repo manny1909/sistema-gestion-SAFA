@@ -2,7 +2,7 @@ GET http://localhost:3000/api
 
 
 GET http://localhost:3000/api/users/getManny/
-athorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzMGJhZDQ0ZWQyZDBmODYyZjNhODAwNyIsInJvbCI6IjYzMGJhZDQ0ZWQyZDBmODYyZjNhN2ZmYiIsIm5vbWJyZSI6ImFkbWluIiwiZW1haWwiOiJtYWdudXNjb2x0ZWxsb0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNBRkEyMDIyIiwiZWRhZCI6MSwiZGlzY29yZCI6Im1hbm55MTkwOSM0NTA2IiwiZXN0YWRvIjoiNjMwYmFkNDRlZDJkMGY4NjJmM2E4MDAzIiwib2JzZXJ2YWNpb25lcyI6InJlZ2lzdHJhZG8gcG9yIG1lZGlvIGRlIGxvcyBzZWVkZXJzIiwiX192IjowfSwiaWF0IjoxNjYxNzExMTAyfQ.kb6vamy0Jn77NfTJDcs6Bd-bE8jnjc0mdYZe-Ss8To0
+athorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzMGJhZDQ0ZWQyZDBmODYyZjNhODAwNyIsInJvbCI6IjYzMGJhZDQ0ZWQyZDBmODYyZjNhN2ZmYiIsIm5vbWJyZSI6ImFkbWluIiwiZW1haWwiOiJtYWdudXNjb2x0ZWxsb0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNBRkEyMDIyIiwiZWRhZCI6MSwiZGlzY29yZCI6Im1hbm55MTkwOSM0NTA2IiwiZXN0YWRvIjoiNjMwYmFkNDRlZDJkMGY4NjJmM2E4MDAzIiwib2JzZXJ2YWNpb25lcyI6InJlZ2lzdHJhZG8gcG9yIG1lZGlvIGRlIGxvcyBzZWVkZXJzIiwiX192IjowfSwiaWF0IjoxNjYxNzQyNTc2fQ.-2_GdYaa473NpUyvLnci2tLBJEqzUYtYrhItydlgnIQ
 
 GET http://localhost:3000/api/users/getManny/
 athorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzMGJiYjYxODg4ZDZkYmI2NDc1Yjc4NiIsInJvbCI6IjYzMGJiYThmMjJhNzRkZDVjY2U5YzNkYiIsIm5vbWJyZSI6InVzZXIiLCJlbWFpbCI6InNhZmFnZXN0aW9uMjAyMkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNBRkEyMDIyIiwiZWRhZCI6MSwiZGlzY29yZCI6Im1hbm55MTkwOSM0NTA2IiwiZXN0YWRvIjoiNjMwYmFkNDRlZDJkMGY4NjJmM2E4MDAzIiwib2JzZXJ2YWNpb25lcyI6InJlZ2lzdHJhZG8gcG9yIG1lZGlvIGRlIGxvcyBzZWVkZXJzIiwiX192IjowfSwiaWF0IjoxNjYxNzEzMzYwfQ.j_3zSObis24h-62DfEhI9begdBbEeWG7YFbQxbCMtRo
@@ -23,3 +23,14 @@ Content-Type: application/json
     "password": "SAFA2022"
 }
 
+POST http://localhost:3000/api/users/signUp/
+Content-Type: application/json
+
+{
+    "user":
+        {
+        "nombre": "Galileu Goodfellaaa",
+        "email": "galileooo@gmail.com",
+        "password": "SAFA2022"
+        }
+}

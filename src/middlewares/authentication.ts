@@ -13,7 +13,7 @@ function isAuthenticate(req:any){
     } 
 }
 let adminDBID:any=null
-rolModel.findOne({nombre:'admin'},'_id').then(id=>adminDBID=id)
+rolModel.findOne({nombre:'admin'},'_id').then(({_id})=>adminDBID=_id.valueOf())
 export const auth={
     
     admin(req:any,res:Response,next:any){

@@ -7,4 +7,6 @@ const rolSchema=new Schema({
     }
 })
 const rolModel= model('Rol', rolSchema)
-export { rolModel }
+var roles:any[] 
+ rolModel.find().then(_role=>roles=_role)
+export { rolModel, roles }

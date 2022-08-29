@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {userController} from '../../controller/user/user.controller';
+import {userController} from '../../controller/index';
 import { authoritation, } from '../../middlewares/index';
 const indexUsers:Router=Router()
 indexUsers.route('/getManny') 
@@ -11,5 +11,8 @@ indexUsers.route('/signIn')
     .post((req,res)=>{
         userController.iniciarSesion(req,res)
     })
-
+indexUsers.route('/signUp')
+    .post((req,res)=>{
+        userController.registrarse(req,res)
+    })
 export default indexUsers; 
