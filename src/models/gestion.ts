@@ -1,8 +1,8 @@
 import {Schema, SchemaTypes, Types, model} from 'mongoose';
 const gestionSchema=new Schema({
-    rango_necesario:{
+    rol_necesario:{
         type:Types.ObjectId, 
-        ref:'Rango'
+        ref:'Rol'
     },
     nombre_gestion:{
         type:SchemaTypes.String, 

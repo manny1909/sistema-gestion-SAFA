@@ -4,6 +4,11 @@ const rolSchema=new Schema({
         type:SchemaTypes.String, 
         unique: true,
         required:true,
+    },
+    nivel:{
+        type:SchemaTypes.Number, 
+        unique: true,
+        required:true,
     }
 })
 const rolModel= model('Rol', rolSchema)

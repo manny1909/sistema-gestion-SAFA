@@ -1,6 +1,6 @@
 import {Schema, SchemaTypes, Types, model} from 'mongoose';
 const ascensoDescensoSchema=new Schema({
-    militar:{
+    miembro:{
         type:Types.ObjectId, 
         ref:'Miembro'
     },

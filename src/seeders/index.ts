@@ -3,11 +3,12 @@ import { estadoModel } from '../models/estado';
 import { userModel } from '../models/user';
 import { connectDB, disconnectDB } from '../db';
 import { rolModel } from '../models/rol';
+import { miembroModel } from '../models/miembro';
 
-let usuarios = data.usuarios
 let estados = data.estados
 let roles = data.roles
-
+let usuarios = data.usuarios
+let miembros = data.miembros
 
 async function loadEstados() {
     estados = await Promise.all(
@@ -29,29 +30,39 @@ async function loadRoles() {
     return roles;
 }
 async function loadUsuarios() {
-    console.log(estados);
-    console.log(roles);
-    
-    return await Promise.all(
+    usuarios = await Promise.all(
         usuarios.map(async (user, index) => {
             user.estado = estados.find(x=>x.nombre==user.estado)?._id
-            user.rol = roles.find(x=>x.nombre==user.rol)?._id
             const userDB = new userModel(user)
             return await userDB.save()
         })
-
     )
+    return usuarios
 
+}
+async function loadMiembros() {
+    miembros = await Promise.all(
+        miembros.map(async (miembro)=>{
+            miembro.rol = roles.find(x=>x.nombre==miembro.rol)?._id
+            miembro.usuario = usuarios.find(x=>x.nombre==miembro.usuario)?._id
+            const miembroDB = new miembroModel(miembro)
+            return await miembroDB.save()
+        })
+    )
+    return miembros
 }
 function cargarData() {
     try {
         connectDB().then(async conexion => {
-            conexion.connection.dropDatabase()
+            await conexion.connection.dropDatabase()
+
             await loadEstados();
 
             await loadRoles()
 
             await loadUsuarios()
+
+            await loadMiembros();
         }).finally(() => {
             disconnectDB()
         })

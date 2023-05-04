@@ -3,10 +3,12 @@ import { dataSeed } from "../interfaces/dataSeed";
 export const data:dataSeed = {
     "roles":[
         {
-            "nombre": "admin"
+            "nombre": "admin",
+            "nivel": 9999
         },
         {
-            "nombre": "user"
+            "nombre": "user",
+            "nivel": 0
         },
     ],
     "estados":
@@ -21,7 +23,6 @@ export const data:dataSeed = {
     "usuarios":
         [
             {
-                "rol": 'admin',
                 "nombre": "admin",
                 "email": "magnuscoltello@gmail.com",
                 "password": "SAFA2022",
@@ -31,7 +32,6 @@ export const data:dataSeed = {
                 "observaciones": "registrado por medio de los seeders",
             },
             {
-                "rol": 'user',
                 "nombre": "user",
                 "email": "safagestion2022@gmail.com",
                 "password": "SAFA2022",
@@ -40,5 +40,16 @@ export const data:dataSeed = {
                 "estado": 'desactivado',
                 "observaciones": "registrado por medio de los seeders",
             }
+        ],
+    "miembros":
+        [
+            {
+               usuario:'admin',
+               rol:'admin' 
+            },
+            {
+               usuario:'user',
+               rol:'user' 
+            },
         ]
 }

@@ -1,12 +1,12 @@
-import {Schema, SchemaTypes, Types, model, Model} from 'mongoose';
+import {Schema, Types, model, Model} from 'mongoose';
 const miembroSchema=new Schema({
-    persona:{
+    usuario:{
         type:Types.ObjectId, 
         ref:'Usuario'
     },
-    rango:{
+    rol:{
         type:Types.ObjectId, 
-        ref:'Rango'
+        ref:'Rol'
     },
     
 

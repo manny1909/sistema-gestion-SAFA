@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 export interface Usuario{
-    rol:mongoose.Types.ObjectId | string | any
+    _id?:string | mongoose.Types.ObjectId |any
     nombre:string
     email:string
     password:string
