@@ -1,6 +1,5 @@
 import mongoose from "mongoose"; 
 import { config } from "dotenv";
-import { estadoModel } from "../models/estado";
 config()
 export async function connectDB (){
     const URI= process.env.MONGODB_URI || 'mongodb://localhost:27017/SAFA'
@@ -8,7 +7,6 @@ export async function connectDB (){
     const options:mongoose.ConnectOptions={
         
     }
-    const response=await mongoose.connect(URI, options)
     db.on('open',_=>{
         console.log('db connected successfully \n')
     });
@@ -16,7 +14,17 @@ export async function connectDB (){
         console.error('failed to connect with db')
         console.error(error);
     })
+    db.on("close",()=>{
+        console.log('conexión cerrada');
+    })
+    const response=await mongoose.connect(URI, options)
+    return response
 }
 export async function disconnectDB() {
-    await mongoose.disconnect()
+    
+    const estadoConeccion = mongoose.connection.readyState
+    console.log(estadoConeccion);
+    if(estadoConeccion==1 || estadoConeccion==2){
+        await mongoose.connection.close()
+    }
 }
