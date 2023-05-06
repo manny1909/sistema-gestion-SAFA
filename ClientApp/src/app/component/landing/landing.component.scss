@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    font-family: 'Mukta', sans-serif;
+    
+}
+.home{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    
+}
+/*Principal*/
+.section_top{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-image: radial-gradient(circle at 50% -20.71%, #bae0e4 0, #bae0e6 5.56%, #bbe0e9 11.11%, #bcdfeb 16.67%, #bedeed 22.22%, #c0deef 27.78%, #c3ddf0 33.33%, #c6dcf1 38.89%, #c9dbf2 44.44%, #cddaf2 50%, #d1d9f2 55.56%, #d5d8f1 61.11%, #d9d7f0 66.67%, #dcd6ef 72.22%, #e0d5ed 77.78%, #e4d4eb 83.33%, #e7d3e8 88.89%, #ead2e6 94.44%, #edd2e3 100%);
+
+
+
+    /*background-image: url(https://imgur.com/NSGm2h4.png);
+    background-position: center;
+    background-repeat: no-repeat;*/
+    -webkit-background-size: 100% 100%;               /* Safari 3.0 */
+    -moz-background-size: 100% 100%;                  /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: 100% 100%;                    /* Opera 9.5 */
+    background-size: 100% 100%;                       /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 20s infinite ;
+}
+.sec_top{
+    position: relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    
+}
+.sec_top h1{
+    color:#ffffff;
+    font-size: 3rem;
+    letter-spacing: 10px;
+    margin-bottom: 25px;
+    text-shadow: #000 1px 0px 40px, #000 1px 0px 10px, #0000 1px 0px 5px;
+}
+.sec_top span{
+    font-size: 1.5rem;
+    color:#aaa;    
+}
+/*
+@keyframes change {
+    0%{
+        background-image: url(https://imgur.com/NSGm2h4.png);
+        
+    }
+    20%{
+        background-image: url(https://imgur.com/lDDB11n.png);
+    }
+    40%{
+        background-image: url(https://imgur.com/mbiTQtS.png);
+    }
+    60%{
+        background-image: url(https://imgur.com/fiFCx3S.png);
+    }
+    80%{
+        background-image: url(https://imgur.com/y6rumzU.png);
+    }
+    100%{
+        background-image: url(https://imgur.com/NSGm2h4.png);
+    }
+}*/
+.contenedor_button {
+    width:350px ;
+    display: block;
+    margin: 10px auto;
+}
