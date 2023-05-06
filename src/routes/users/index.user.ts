@@ -15,4 +15,8 @@ indexUsers.route('/signUp')
     .post((req,res)=>{
         userController.registrarse(req,res)
     })
+indexUsers.route('/getUserByToken')
+    .post((req,res)=>{
+        userController.getUserByToken(req,res)
+    })
 export default indexUsers; 

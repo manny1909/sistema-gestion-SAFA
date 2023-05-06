@@ -9,6 +9,4 @@ const estadoSchema=new Schema({
 })
 const estadoModel= model('Estado', estadoSchema)
 
-let estados:any[];
-estadoModel.find({}).then(_estados=>estados=_estados)
-export { estadoModel, estados }
+export { estadoModel }

@@ -1,0 +1,92 @@
+.registrarse-container-card{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: purple;
+    
+}
+.registrarse-card{
+    background-color: white;
+    height: 50vh;
+    width:  30vw;
+    margin: auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+}
+.registrarse-input, .registrarse-input:focus-visible{
+    all:unset;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    transition: all .1s;
+}
+.registrarse-input:focus-visible{
+    border-bottom: 1.5px solid rgba(94, 2, 117, 0.678);
+    
+}
+.registrarse-form-control{
+    margin: 1rem 0;
+    text-align: center;
+}
+.registrarse-form{
+}
+.registrarse-btn-submit{
+    text-align: center;
+    width: 100%;
+    margin: 1rem auto;
+    line-height: 2;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.registrarse-card-header-title{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: sans-serif;
+    color: #561256;
+}
+// Animate the size, outside
+.pulse:hover, 
+.pulse:focus {
+    cursor: pointer;
+  animation: pulse 1s;
+  box-shadow: 0 0 0 1em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+$colors: (
+  pulse: #a100e0, 
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="login-container-card">
+    <form [formGroup]="formLogin" (ngSubmit)="enviar()" class="login-form">
+        <div class="login-card">
+            <div class="login-card-header">
+                <div class="login-card-header-title">
+                    Iniciar sesión
+                </div>
+            </div>
+            <div class="login-card-body">
+                <div class="login-form-control">
+                    <input formControlName="email" type="email" placeholder="correo" class="login-input">
+                </div>
+                <div class="login-form-control">
+                    <input formControlName="password" type="password" placeholder="contraseña" class="login-input">
+                </div>
+            </div>
+            <div class="login-card-footer">
+
+                <button class="login-btn-submit pulse" type="submit">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>

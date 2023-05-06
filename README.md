@@ -1,7 +1,7 @@
 # sistema-gestion-SAFA
 ## Instalaciones
 ### ·git
-### ·nodeJS
+### ·nodeJS v16
 ### ·mongoDB
 ## Pasos:
 ### ·npm i en la raiz del proyecto
