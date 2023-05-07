@@ -25,6 +25,11 @@ const userSchema=new Schema({
         ref: 'Estado',
         required: true
     },
+    sesion: {
+        type: SchemaTypes.Boolean,
+        required: false,
+        default: false
+    },
     observaciones: {
         type: SchemaTypes.String,
     },

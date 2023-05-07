@@ -2,6 +2,7 @@ import {verify} from 'jsonwebtoken';
 import { config } from "dotenv";
 import { Response } from 'express';
 import {rolModel} from '../models/rol';
+import { miembroModel } from '../models/miembro';
 config()
 function isAuthenticate(req:any){
     const token= req.headers.athorization || null
@@ -12,16 +13,46 @@ function isAuthenticate(req:any){
        return payload?payload:null
     } 
 }
-let adminDBID:any=null
-rolModel.findOne({nombre:'admin'},'_id').then(({_id})=>adminDBID=_id.valueOf())
-export const auth={
+async function validarAccesoPorRol(usuario:any, rol:string){
+    const miembro = await miembroModel.exists(
+        {'usuario':usuario._id}
+        ).populate(
+            {
+                select:'',
+                path: 'rol',
+                match: {nombre: rol}
+            }
+        ).select('rol usuario _id')
+
+    // const asd = await miembroModel.find(
+    //     {usuario:usuario._id}
+    // ).populate(
+    //     {
+    //         select:'nombre',
+    //         path: 'rol',
+    //     }
+    // ).populate(
+    //     {
+    //         path:'usuario',
+    //         select:'_id nombre',
+    //         // match:{ _id: usuario._id}
+    //     }
+    // )
+    // console.log(asd);
     
-    admin(req:any,res:Response,next:any){
+    
+    return miembro !=undefined
+}
+export const auth={
+    async admin(req:any,res:Response,next:any){
         const payload:any=isAuthenticate(req) || null
         if (payload && payload.user) {
             const user = payload.user            
             req.user=user
-            user.rol==adminDBID?next(): res.status(401).json({mensaje:'unauthorized'})
+            const esAdmin = await validarAccesoPorRol(user, 'admin')
+            esAdmin
+            ? next()
+            : res.status(401).json({mensaje:'unauthorized'})
         } else {
             res.status(401).json({mensaje:'unathenticate'})
         }

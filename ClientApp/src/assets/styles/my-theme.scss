@@ -1,0 +1,55 @@
+//gama de colores
+//se genera con http://mcg.mbitson.com/#!?mcgpalette0=%237e3ff2 se elige el color,
+//luego se ve el codigo y se elige la opcion de angular 2
+$my-primary-color: (
+    50 : #f0e8fd,
+    100 : #d8c5fb,
+    200 : #bf9ff9,
+    300 : #a579f6,
+    400 : #915cf4,
+    500 : #7e3ff2,
+    600 : #7639f0,
+    700 : #6b31ee,
+    800 : #6129ec,
+    900 : #4e1be8,
+    A100 : #ffffff,
+    A200 : #eee9ff,
+    A400 : #c6b6ff,
+    A700 : #b29cff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+//definir paletas de colores
+$primary: mat.define-palette($my-primary-color, 400);
+$accent: mat.define-palette($my-primary-color, 200);
+
+$warn: mat.define-palette(mat.$red-palette);
+
+// creando el thema
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  )
+));
+
+// Incluyendo el tema en los componentes de material
+@include mat.all-component-themes($theme);

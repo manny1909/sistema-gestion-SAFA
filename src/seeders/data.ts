@@ -48,6 +48,10 @@ export const data:dataSeed = {
                rol:'admin' 
             },
             {
+               usuario:'admin',
+               rol:'user' 
+            },
+            {
                usuario:'user',
                rol:'user' 
             },
