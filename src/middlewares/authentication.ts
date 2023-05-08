@@ -24,23 +24,6 @@ async function validarAccesoPorRol(usuario:any, rol:string){
             }
         ).select('rol usuario _id')
 
-    // const asd = await miembroModel.find(
-    //     {usuario:usuario._id}
-    // ).populate(
-    //     {
-    //         select:'nombre',
-    //         path: 'rol',
-    //     }
-    // ).populate(
-    //     {
-    //         path:'usuario',
-    //         select:'_id nombre',
-    //         // match:{ _id: usuario._id}
-    //     }
-    // )
-    // console.log(asd);
-    
-    
     return miembro !=undefined
 }
 export const auth={

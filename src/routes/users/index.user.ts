@@ -7,6 +7,10 @@ indexUsers.route('/getManny')
         const response:object=userController.getManny()
         res.json(response)
     })
+indexUsers.route('/getUsers') 
+    .post(authoritation.admin,(req,res)=>{
+        const response:object=userController.getUsers(req, res)
+    })
 indexUsers.route('/signIn')
     .post((req,res)=>{
         userController.iniciarSesion(req,res)
