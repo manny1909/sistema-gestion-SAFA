@@ -1,5 +1,11 @@
 <div class="login-container-card">
     <form [formGroup]="formLogin" (ngSubmit)="enviar()" class="login-form">
+      <div class="contenedor-img">
+        <img src="https://imgur.com/YHL61AI.png" class="imagen" lt="DixelRP" title="©DixelRP">
+      </div>
+      <span class="login-form-title">
+        PICHEL RP - Facciones
+      </span>
         <div class="login-card">
             <div class="login-card-header">
                 <div class="login-card-header-title">
@@ -8,15 +14,15 @@
             </div>
             <div class="login-card-body">
                 <div class="login-form-control">
-                    <input formControlName="email" type="email" placeholder="correo" class="login-input">
+                    <input formControlName="email" type="email" placeholder="Correo" class="login-input">
                 </div>
                 <div class="login-form-control">
-                    <input formControlName="password" type="password" placeholder="contraseña" class="login-input">
+                    <input formControlName="password" type="password" placeholder="Contraseña" class="login-input">
                 </div>
             </div>
             <div class="login-card-footer">
-
-                <button class="login-btn-submit pulse" type="submit">Enviar</button>
+              <button class="login-btn-submit pulse" type="submit">Entrar</button>
+              <button class="login-btn-submit pulse" type="submit">Registrate</button>
             </div>
         </div>
     </form>

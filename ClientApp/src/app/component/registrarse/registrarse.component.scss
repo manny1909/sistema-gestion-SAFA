@@ -1,23 +1,37 @@
+*{
+  font-family: Ubuntu, 'Open Sans', sans-serif;
+}
 .registrarse-container-card{
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: purple;
-    
+    background-image: url(../../../assets/images/imaginrest-1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;               /* Safari 3.0 */
+    -moz-background-size: 100% 100%;                  /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: 100% 100%;                    /* Opera 9.5 */
+    background-size: 100% 100%;                       /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    background-size: cover;
+
 }
+
 .registrarse-card{
-    background-color: white;
     height: 50vh;
     width:  30vw;
     margin: auto;
     padding: 2rem;
     display: grid;
     grid-template-rows: 1fr 3fr 1fr;
+    background-color:#c917b107;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(25pox);
 }
 .registrarse-input, .registrarse-input:focus-visible{
     all:unset;
+    color: #fff;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -29,33 +43,40 @@
 }
 .registrarse-input:focus-visible{
     border-bottom: 1.5px solid rgba(94, 2, 117, 0.678);
-    
+
 }
 .registrarse-form-control{
     margin: 1rem 0;
     text-align: center;
 }
-.registrarse-form{
-}
+
 .registrarse-btn-submit{
     text-align: center;
-    width: 100%;
     margin: 1rem auto;
-    line-height: 2;
-    background-color: black;
+    background: #d41872;
     color: white;
     font-size: 1rem;
-    font-weight: bold;
+    border-radius: 21px;
+    min-width: 160px;
+    height: 42px;
+    width: 50%;
+    border-color:#d41872;
+}
+.registrarse-btn-submit:hover{
+  background-color: transparent;
 }
 .registrarse-card-header-title{
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
     font-family: sans-serif;
-    color: #561256;
+    color: #fff;
+    text-shadow: 0 -1px 4px #fff,
+					 0 -2px 1px rgb(255, 0, 221),
+					 0 -10px 20px #f09;
 }
 // Animate the size, outside
-.pulse:hover, 
+.pulse:hover,
 .pulse:focus {
     cursor: pointer;
   animation: pulse 1s;
@@ -67,7 +88,7 @@
 }
 
 $colors: (
-  pulse: #a100e0, 
+  pulse: #a100e0,
 );
 
 // Sass variables compile to a static string; CSS variables are dynamic and inherited
@@ -80,12 +101,12 @@ $colors: (
 }
 
 // Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
-button {  
+button {
   color: var(--color);
   transition: 0.25s;
-  
+
   &:hover,
-  &:focus { 
+  &:focus {
     border-color: var(--hover);
     color: #fff;
   }

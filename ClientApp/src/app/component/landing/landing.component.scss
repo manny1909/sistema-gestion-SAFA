@@ -2,7 +2,7 @@
 
 *{
     font-family: 'Mukta', sans-serif;
-    
+
 }
 .home{
     margin:0;
@@ -10,7 +10,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
-    
+
 }
 /*Principal*/
 .section_top{
@@ -18,13 +18,9 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-image: radial-gradient(circle at 50% -20.71%, #bae0e4 0, #bae0e6 5.56%, #bbe0e9 11.11%, #bcdfeb 16.67%, #bedeed 22.22%, #c0deef 27.78%, #c3ddf0 33.33%, #c6dcf1 38.89%, #c9dbf2 44.44%, #cddaf2 50%, #d1d9f2 55.56%, #d5d8f1 61.11%, #d9d7f0 66.67%, #dcd6ef 72.22%, #e0d5ed 77.78%, #e4d4eb 83.33%, #e7d3e8 88.89%, #ead2e6 94.44%, #edd2e3 100%);
-
-
-
-    /*background-image: url(https://imgur.com/NSGm2h4.png);
+    background-image: url(https://imgur.com/mbiTQtS.png);
     background-position: center;
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;               /* Safari 3.0 */
     -moz-background-size: 100% 100%;                  /* Gecko 1.9.2 (Firefox 3.6) */
     -o-background-size: 100% 100%;                    /* Opera 9.5 */
@@ -40,43 +36,89 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
-    
+
 }
 .sec_top h1{
     color:#ffffff;
     font-size: 3rem;
     letter-spacing: 10px;
     margin-bottom: 25px;
-    text-shadow: #000 1px 0px 40px, #000 1px 0px 10px, #0000 1px 0px 5px;
+
+    animation: cpink-neon 2s infinite alternate;
 }
 .sec_top span{
     font-size: 1.5rem;
-    color:#aaa;    
+    color:#aaa;
 }
-/*
-@keyframes change {
-    0%{
-        background-image: url(https://imgur.com/NSGm2h4.png);
-        
-    }
-    20%{
-        background-image: url(https://imgur.com/lDDB11n.png);
-    }
-    40%{
-        background-image: url(https://imgur.com/mbiTQtS.png);
-    }
-    60%{
-        background-image: url(https://imgur.com/fiFCx3S.png);
-    }
-    80%{
-        background-image: url(https://imgur.com/y6rumzU.png);
-    }
-    100%{
-        background-image: url(https://imgur.com/NSGm2h4.png);
-    }
-}*/
-.contenedor_button {
-    width:350px ;
-    display: block;
-    margin: 10px auto;
+.lading_container{
+  display: block;
+  width: 25%;
+  margin:auto;
+}
+.mr-2{
+  margin-right: 2rem;
+}
+.landing-btn-submit{
+  text-align: center;
+  margin: 1rem auto;
+  background: #d41872;
+  color: white;
+  font-size: 1rem;
+  border-radius: 21px;
+  min-width: 160px;
+  height: 42px;
+  width: 50%;
+  border-color:#d41872;
+}
+.landing-btn-submit:hover{
+background-color: transparent;
+}
+/*-----------------*/
+
+@keyframes cpink-neon {
+	0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+		text-shadow: 0 -1px 4px #fff,
+					 0 -2px 10px rgb(255, 0, 221),
+					 0 -10px 20px #f09;
+	}
+
+	10%, 15%, 60% {
+		text-shadow: none;
+	}
+}
+// Animate the size, outside
+.pulse:hover,
+.pulse:focus {
+    cursor: pointer;
+  animation: pulse 1s;
+  box-shadow: 0 0 0 1em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+$colors: (
+  pulse: #a100e0,
+);
+
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #fff;
+  }
 }
