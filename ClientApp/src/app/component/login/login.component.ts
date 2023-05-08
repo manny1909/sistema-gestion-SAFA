@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,9 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   formLogin:FormGroup = this._fb.group({})
-  constructor(private _fb:FormBuilder, private _loginServ:LoginService) { 
+  constructor(private _fb:FormBuilder, 
+    private _loginServ:LoginService,
+    private _router:Router) { 
     this.buildForms();
   }
 
@@ -38,6 +41,7 @@ export class LoginComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
+          this._router.navigate(['/'])
         }
         else{
           Swal.close()

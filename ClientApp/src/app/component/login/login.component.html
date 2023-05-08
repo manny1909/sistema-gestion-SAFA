@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="login-card-footer">
-              <button class="login-btn-submit pulse" type="submit">Entrar</button>
+              <button class="login-btn-submit pulse" [ngClass]="{'btn-disabled':formLogin.invalid}" [disabled]="formLogin.invalid" type="submit">Entrar</button>
               <button class="login-btn-submit pulse" type="submit">Registrate</button>
             </div>
         </div>
