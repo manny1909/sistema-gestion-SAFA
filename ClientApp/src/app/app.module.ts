@@ -11,8 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LandingComponent } from './component/landing/landing.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
-
-
+import { AdminUsersComponent } from './component/admin/admin-users/admin-users.component';
+import { AdminComponent } from './component/admin/admin/admin.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {MatButtonModule} from '@angular/material/button';
     LoginComponent,
     RegistrarseComponent,
     LandingComponent,
+    AdminUsersComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import {MatButtonModule} from '@angular/material/button';
     //angular material
     MatSlideToggleModule,
     MatButtonModule,
+    MatTableModule,
+    MatIconModule,
     //
   ],
   providers: [],

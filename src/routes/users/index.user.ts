@@ -8,7 +8,9 @@ indexUsers.route('/getManny')
         res.json(response)
     })
 indexUsers.route('/getUsers') 
-    .post(authoritation.admin,(req,res)=>{
+    .post(
+        // authoritation.admin,
+        (req,res)=>{
         const response:object=userController.getUsers(req, res)
     })
 indexUsers.route('/signIn')

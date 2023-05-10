@@ -1,5 +1,5 @@
 <div class="registrarse-container-card">
-    <form action="" class="registrarse-form">
+    <form [formGroup]="formRegistrarse" (ngSubmit)="enviar()" class="registrarse-form">
         <div class="registrarse-card">
             <div class="registrarse-card-header">
                 <div class="registrarse-card-header-title">
@@ -8,19 +8,19 @@
             </div>
             <div class="registrarse-card-body">
                 <div class="registrarse-form-control">
-                    <input type="text" placeholder="Nombre de usuario" class="registrarse-input">
+                    <input type="text" formControlName="nombre" placeholder="Nombre de usuario" class="registrarse-input">
                 </div>
                 <div class="registrarse-form-control">
-                    <input type="email" placeholder="Correo electronico" class="registrarse-input">
+                    <input type="email" formControlName="email" placeholder="Correo electronico" class="registrarse-input">
                 </div>
                 <div class="registrarse-form-control">
-                    <input type="password" placeholder="Contraseña" class="registrarse-input">
+                    <input type="password" formControlName="password" placeholder="Contraseña" class="registrarse-input">
                 </div>
             </div>
             <div class="registrarse-card-footer">
 
-                <button class="registrarse-btn-submit pulse">Registrarse</button>
-                <button class="registrarse-btn-submit pulse">Inicia Sesion</button>
+                <button class="registrarse-btn-submit pulse" [ngClass]="{'btn-disabled':formRegistrarse.invalid}" [disabled]="formRegistrarse.invalid">Registrarse</button>
+                <button class="registrarse-btn-submit pulse" (click)="ir('login')">Inicia Sesión</button>
             </div>
         </div>
     </form>

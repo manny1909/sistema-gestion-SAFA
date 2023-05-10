@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-          this._router.navigate(['/'])
+          this.ir('admin/adminUsers')
         }
         else{
           Swal.close()
@@ -56,7 +56,9 @@ export class LoginComponent implements OnInit {
       })
     }
   }
- 
+  ir(ruta:string){
+    this._router.navigate([ruta])
+  }
   ngOnInit(): void {
   }
 

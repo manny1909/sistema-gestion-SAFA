@@ -55,6 +55,17 @@ export const userController = {
         }
     },
     getUsers: async (req:any, res:Response)=>{
+        let a = await
+        userModel.aggregate([{
+            $lookup: {
+                from:'miembros',
+                localField:'_id',
+                foreignField:'usuario',
+                as: 'roles'
+            },
+            
+        }])
+        
         let resultados:any = await userModel.find()
         let response:any[]=new Array()
         await Promise.all(resultados.map(async (resultado:any)=>{
@@ -75,8 +86,8 @@ export const userController = {
             const {nombre, email, password}=data
             const usuario= new userModel({nombre,password,email, estado})
             const userDB = await usuario.save()
-            const miebroDB = await new miembroModel({rol:rol._id, usuario: userDB._id}).save()
-            res.json({userDB, miebroDB})
+            const miembroDB = await miembroModel.findOneAndUpdate({}, {rol:rol._id, usuario:userDB._id}, {upsert:true})
+            res.json({userDB, miembroDB, ok:true})
             
         } catch (error) {
             res.status(400).json({error})
