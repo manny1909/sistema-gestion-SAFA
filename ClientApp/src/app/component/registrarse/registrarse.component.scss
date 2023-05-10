@@ -1,6 +1,4 @@
-*{
-  font-family: Ubuntu, 'Open Sans', sans-serif;
-}
+
 .registrarse-container-card{
     height: 100vh;
     width: 100%;
@@ -29,6 +27,14 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(25pox);
 }
+
+.container_icon a{
+  text-decoration: none;
+  color:#FFF;
+  text-align: justify;
+}
+
+
 .registrarse-input, .registrarse-input:focus-visible{
     all:unset;
     color: #fff;
@@ -51,6 +57,7 @@
 }
 
 .registrarse-btn-submit{
+    font-family:Ubuntu, sans-serif;
     text-align: center;
     margin: 1rem auto;
     background: #d41872;
@@ -69,7 +76,7 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
-    font-family: sans-serif;
+    font-family:Ubuntu, sans-serif;
     color: #fff;
     text-shadow: 0 -1px 4px #fff,
 					 0 -2px 1px rgb(255, 0, 221),
