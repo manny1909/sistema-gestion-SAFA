@@ -17,7 +17,7 @@
 }
 
 .registrarse-card{
-    height: 50vh;
+    height: 55vh;
     width:  30vw;
     margin: auto;
     padding: 2rem;
@@ -27,13 +27,36 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(25pox);
 }
-
-.container_icon a{
+.container_icon {
+  display: flex;
+  align-items: center;
+}
+.container_icon a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color:#FFF;
-  text-align: justify;
+  color: #FFF;
+  text-align: right;
+}
+.container_icon a mat-icon {
+  font-size: 18px; /* Tamaño del icono */
+  font-weight: bold;
+}
+.container_icon a p {
+  font-size: 1.4rem; /* Tamaño del texto */
+}
+.container_icon a:hover {
+  color: #d41872; /* Color rosado al pasar el cursor */
+  font-weight: bold;
 }
 
+.imagen{ /*Imagen de logo dixel*/
+  width:170px;
+	height:120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .registrarse-input, .registrarse-input:focus-visible{
     all:unset;
@@ -64,10 +87,22 @@
     color: white;
     font-size: 1rem;
     border-radius: 21px;
-    min-width: 160px;
+    min-width: 60px;
     height: 42px;
-    width: 50%;
+    width: 100%;
     border-color:#d41872;
+}
+.login-btn-submit{
+  color: #ffff;
+  font-size: 1rem;
+  font-family: Ubuntu;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.login-btn-submit:hover{
+  color:#a100e0 ;
 }
 .registrarse-btn-submit:hover{
   background-color: transparent;
