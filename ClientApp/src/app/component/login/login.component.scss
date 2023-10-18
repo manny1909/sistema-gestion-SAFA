@@ -46,10 +46,30 @@
   margin: 15px 10px;
   animation: cpink-neon 2s infinite alternate;
 }
-.container_icon a{
-  text-decoration: none;
-  color:#FFF;
+.container_icon {
+  display: flex;
+  align-items: center;
 }
+.container_icon a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFF;
+  text-align: right;
+
+}
+.container_icon a mat-icon {
+  font-size: 18px; /* Tamaño del icono */
+  font-weight: bold;
+}
+.container_icon a p {
+  font-size: 1.4rem; /* Tamaño del texto */
+}
+.container_icon a:hover {
+  color: #d41872; /* Color rosado al pasar el cursor */
+  font-weight: bold;
+}
+
 .login-input, .login-input:focus-visible{
     all:unset;
     color:#fff;
@@ -77,9 +97,9 @@
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  min-width: 160px;
+  min-width: 60px;
   height: 42px;
-  width: 50%;
+  width: 100%;
   border-radius: 21px;
   margin: 2rem auto;
   background: #d41872;
@@ -90,7 +110,18 @@
 .login-btn-submit:hover{
   background-color: transparent;
 }
-
+.register-btn-submit{
+  color: #fff;
+  font-size: 1rem;
+  font-family: Ubuntu;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.register-btn-submit:hover{
+  color:#a100e0 ;
+}
 .login-card-header-title{
     text-align: center;
     font-size: 2rem;
