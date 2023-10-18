@@ -66,13 +66,17 @@ export const userController = {
             
         }])
         
-        let resultados:any = await userModel.find()
+        let resultados:any = await userModel.find().populate({
+            path:'estado',
+            select: 'nombre -_id',
+        })
         let response:any[]=new Array()
         await Promise.all(resultados.map(async (resultado:any)=>{
             resultado.roles = []
             const roles = await miembroModel.find({'usuario': resultado._id}).populate({
                 select:'nombre',
                 path:'rol',
+                
             })
            response.push({user:resultado, roles}) 
         }))
