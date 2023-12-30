@@ -11,13 +11,22 @@ POST http://0.0.0.0:3000/api/users/getUsers/
 athorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NTgzNTJmODcwNTMwYzg4YWZkM2RkMCIsIm5vbWJyZSI6ImFkbWluIiwiZW1haWwiOiJtYWdudXNjb2x0ZWxsb0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNBRkEyMDIyIiwiZWRhZCI6MSwiZGlzY29yZCI6Im1hbm55MTkwOSM0NTA2IiwiZXN0YWRvIjoiNjQ1ODM1MmY4NzA1MzBjODhhZmQzZGM3Iiwic2VzaW9uIjpmYWxzZSwib2JzZXJ2YWNpb25lcyI6InJlZ2lzdHJhZG8gcG9yIG1lZGlvIGRlIGxvcyBzZWVkZXJzIiwiX192IjowfSwiaWF0IjoxNjgzNTA2MjIwfQ.I9TKum_Bk50D4rsv_UBPJjpehm4tQ2x8-Ek5VoEsfKI
 
 
-POST http://0.0.0.0:3000/api/users/signIn/
+POST http://0.0.0.0:3000/api/v1/user/signIn/
 Content-Type: application/json
 
 {
     "email": "magnuscoltello@gmail.com",
-    "password": "SAFA2022"
+    "password": "123456"
 }
+
+POST http://0.0.0.0:3000/api/v1/user/getUsers/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NThmMTkzM2RmMmE5MTJjYWI4ZmNhNDAiLCJyb2xlcyI6W3siX2lkIjoiNjU4ZjE5MzNkZjJhOTEyY2FiOGZjYTNkIiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJsZXZlbCI6OTl9LHsiX2lkIjoiNjU4ZjE5MzNkZjJhOTEyY2FiOGZjYTNlIiwibmFtZSI6ImN1c3RvbWVyIiwibGV2ZWwiOjF9XSwiaWF0IjoxNzAzOTE5NzAzfQ.5pF2mQ-HGUR_FmfiJhA84Z9Q9drniwb4M8P51CnVTqs
+
+POST http://0.0.0.0:3000/api/v1/user/getUserByToken/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NThmMTkzM2RmMmE5MTJjYWI4ZmNhNDAiLCJyb2xlcyI6W3siX2lkIjoiNjU4ZjE5MzNkZjJhOTEyY2FiOGZjYTNkIiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJsZXZlbCI6OTl9LHsiX2lkIjoiNjU4ZjE5MzNkZjJhOTEyY2FiOGZjYTNlIiwibmFtZSI6ImN1c3RvbWVyIiwibGV2ZWwiOjF9XSwiaWF0IjoxNzAzOTE5NzAzfQ.5pF2mQ-HGUR_FmfiJhA84Z9Q9drniwb4M8P51CnVTqs
+
 
 POST http://0.0.0.0:3000/api/users/signIn/
 Content-Type: application/json

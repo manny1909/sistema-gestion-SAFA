@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class UsuarioService {
   getUsers():Observable<any> {
-    return this._http.post(environment.apiURL+'users/getUsers',{})
+    return this._http.post(environment.apiURL+'user/getUsers',{})
   }
   registrarse(user: any): Observable<any> {
-    return this._http.post(environment.apiURL+'users/signUp',{user})
+    return this._http.post(environment.apiURL+'user/signUp',{user})
   }
 
   constructor(private _http:HttpClient) { }

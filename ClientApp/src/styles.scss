@@ -1,5 +1,8 @@
 @import 'assets/styles/my-theme.scss';
 html, body { height: 100%; }
+.main-container{
+    overflow: hidden;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@700&display=swap');

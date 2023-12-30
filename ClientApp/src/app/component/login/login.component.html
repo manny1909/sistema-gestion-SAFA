@@ -1,37 +1,37 @@
-<div class="login-container-card">
-    <form [formGroup]="formLogin" (ngSubmit)="enviar()" class="login-form">
-      <div class="contenedor-img">
-        <img src="https://imgur.com/YHL61AI.png" class="imagen" lt="DixelRP" title="©DixelRP">
-      </div>
-      <span class="login-form-title">
-        PICHEL RP - Facciones
-      </span>
-        <div class="login-card">
-          <div class="container_icon">
-            <a href="#">
-              <mat-icon aria-hidden="false" aria-label="volver">arrow_back_ios_new</mat-icon>
-              <p>Home</p>
-            </a>
-          </div>
-            <div class="login-card-header">
-                <div class="login-card-header-title">
-                    Iniciar sesión
-                </div>
-            </div>
-            <div class="login-card-body">
-                <div class="login-form-control">
-                    <input formControlName="email" type="email" placeholder="Correo" class="login-input">
-                </div>
-                <div class="login-form-control">
-                    <input formControlName="password" type="password" placeholder="Contraseña" class="login-input">
-                </div>
-            </div>
-            <div class="login-card-footer">
-              <button class="login-btn-submit pulse" [ngClass]="{'btn-disabled':formLogin.invalid}" [disabled]="formLogin.invalid" type="submit">Entrar</button>
-            </div>
-            <div class="login-card-footer">
-              <a class="register-btn-submit" (click)="ir('registrarse')">¿No tienes cuenta? Registrate!</a>
-            </div>
+<section class="login-container-card">
+  <form [formGroup]="formLogin" (ngSubmit)="enviar()" class="login-form">
+    <div class="contenedor-img">
+      <img src="https://imgur.com/YHL61AI.png" class="imagen" alt="DixelRP" title="©DixelRP">
+    </div>
+    <h2 class="login-form-title">
+      PICHEL RP - Facciones
+    </h2>
+    <article class="login-card">
+      <nav class="container_icon">
+        <a href="#">
+          <mat-icon aria-hidden="false" aria-label="volver">arrow_back_ios_new</mat-icon>
+          <p>Home</p>
+        </a>
+      </nav>
+      <header class="login-card-header">
+        <h3 class="login-card-header-title">
+          Iniciar sesión
+        </h3>
+      </header>
+      <div class="login-card-body">
+        <div class="login-form-control">
+          <input formControlName="email" type="email" placeholder="Correo" class="login-input">
         </div>
-    </form>
-</div>
+        <div class="login-form-control">
+          <input formControlName="password" type="password" placeholder="Contraseña" class="login-input">
+        </div>
+      </div>
+      <footer class="login-card-footer">
+        <button class="login-btn-submit pulse" [ngClass]="{'btn-disabled':formLogin.invalid}" [disabled]="formLogin.invalid" type="submit">Entrar</button>
+      </footer>
+      <footer class="login-card-footer">
+        <a class="register-btn-submit" (click)="ir('registrarse')">¿No tienes cuenta? Regístrate!</a>
+      </footer>
+    </article>
+  </form>
+</section>

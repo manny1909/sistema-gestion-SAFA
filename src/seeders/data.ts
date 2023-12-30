@@ -1,59 +1,54 @@
 import { dataSeed } from "../interfaces/dataSeed";
 
 export const data:dataSeed = {
-    "roles":[
+    "users": [
         {
-            "nombre": "admin",
-            "nivel": 9999
+            "name": "admin",
+            "email": "magnuscoltello@gmail.com",
+            "password": "$2b$10$cYhCSW4aVmyOljtfw5up2.9oLMeTvFVvSd.fjzgi6WOhx6ag7kOW6",
+            "token": null,
+            "age": 25,
+            "discord": "manny19_",
+            "state": 1,
+            "observations": "Observaciones generales",
+            "role_ids": [],
+            "roles": []
         },
         {
-            "nombre": "user",
-            "nivel": 0
+            "name": "customer",
+            "email": "goodfellagalileo@gmail.com",
+            "password": "$2b$10$cYhCSW4aVmyOljtfw5up2.9oLMeTvFVvSd.fjzgi6WOhx6ag7kOW6",
+            "token": null,
+            "age": 18,
+            "discord": "7dova_",
+            "state": 1,
+            "observations": "Observaciones generales",
+            "role_ids": [],
+            "roles": []
         },
     ],
-    "estados":
-        [
-            {
-                "nombre": "desactivado"
-            },
-            {
-                "nombre": "activado"
-            },
-        ],
-    "usuarios":
-        [
-            {
-                "nombre": "admin",
-                "email": "magnuscoltello@gmail.com",
-                "password": "SAFA2022",
-                "edad": 1,
-                "discord": "manny1909#4506",
-                "estado": 'activado',
-                "observaciones": "registrado por medio de los seeders",
-            },
-            {
-                "nombre": "user",
-                "email": "safagestion2022@gmail.com",
-                "password": "SAFA2022",
-                "edad": 1,
-                "discord": "manny1909#4506",
-                "estado": 'desactivado',
-                "observaciones": "registrado por medio de los seeders",
-            }
-        ],
-    "miembros":
-        [
-            {
-               usuario:'admin',
-               rol:'admin' 
-            },
-            {
-               usuario:'admin',
-               rol:'user' 
-            },
-            {
-               usuario:'user',
-               rol:'user' 
-            },
-        ]
+    "roles": [
+        {
+            "name": "Administrador",
+            "level": 99
+        },
+        {
+            "name": "customer",
+            "level": 1
+        },
+        {
+            "name": "Líder general SAPD",
+            "level": 20
+        },
+        {
+            "name": "Líder general SAFA",
+            "level": 20
+        },
+        {
+            "name": "Líder general FBI",
+            "level": 20
+        },
+    ], 
+     
+    
 }

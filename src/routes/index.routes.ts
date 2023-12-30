@@ -1,15 +1,11 @@
-import { Router } from "express";
-import userRoutes from './users/index.user';
+import express, { Application, Express, Router } from 'express';
+import usersRouter from './users.route';
 
-const indexRouter:Router=Router()
-indexRouter.use('/users',userRoutes) 
- indexRouter.route('/')
-    .get((req,res)=>{
-         res.json({
-            "hola":"puto"
-        })
-    })
-export {
-    indexRouter,
-    userRoutes
+const router: Router = express.Router();
+
+function routeApi(app: Application): void {
+  app.use('/api/v1/', router);
+  router.use('/user', usersRouter);
 }
+
+export default routeApi;

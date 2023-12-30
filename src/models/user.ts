@@ -1,6 +1,6 @@
 import {Schema, SchemaTypes, Types, model, Model} from 'mongoose';
 const userSchema=new Schema({
-    nombre: {
+    name: {
         type: SchemaTypes.String,
         required:true,
         unique:true,
@@ -14,25 +14,40 @@ const userSchema=new Schema({
         type: SchemaTypes.String,
         required:true,
     },
-    edad: {
+    token: {
+        type: SchemaTypes.String,
+        required: false,
+        default: null
+    },
+    age: {
         type: SchemaTypes.Number,
     },
     discord: {
         type: SchemaTypes.String,
     },
-    estado: {
-        type: Types.ObjectId,
-        ref: 'Estado',
+    state: {
+        type: SchemaTypes.Number,
         required: true
     },
-    sesion: {
-        type: SchemaTypes.Boolean,
-        required: false,
-        default: false
-    },
-    observaciones: {
+    
+    observations: {
         type: SchemaTypes.String,
     },
-    
+    roles: [
+        { 
+            _id: {
+                type: Types.ObjectId,
+                ref: 'role'
+            },
+            name:{
+                type:SchemaTypes.String,
+                
+            },
+            level:{
+                type: SchemaTypes.Number,
+                
+            }
+        }
+    ]
 })
-export const userModel = model('Usuario',userSchema)
+export const userModel = model('user',userSchema)

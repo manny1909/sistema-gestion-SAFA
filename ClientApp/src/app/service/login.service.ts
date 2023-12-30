@@ -13,7 +13,7 @@ export class LoginService {
     
   }
   login(loginForm:{email:string, pass:string}):Observable<any>{
-    return this._http.post(environment.apiURL+'users/signIn/',loginForm)
+    return this._http.post(environment.apiURL+'user/signIn/',loginForm)
   }
   setToken(token:string){
     this.token=token
