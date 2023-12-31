@@ -6,7 +6,7 @@ import routeApi from './routes/index.routes'
 import setupModels from './setupModels';
 //initialization
 const app:Application=express();
-//setings
+//settings
 setupModels()
 //middlewares 
 app.use(cors())
