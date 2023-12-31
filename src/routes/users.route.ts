@@ -27,7 +27,7 @@ userRoute.route('/signIn')
     })
 userRoute.route('/signUp')
     .post((req,res)=>{
-        // userController.registrarse(req,res)
+        userController.registrarse(req,res)
     })
 userRoute.route('/getUserByToken')
     .post(

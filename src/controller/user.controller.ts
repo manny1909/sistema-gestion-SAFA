@@ -55,11 +55,10 @@ export const userController = {
     registrarse: async (req: any, res: Response) => {
         try {
             const data: any = req.body.user
-            const rol = await roleModel.findOne({ nombre: "user" }).select("_id")
-            const { nombre, email, password } = data
-            const usuario = new userModel({ nombre, password, email, estado: 0 })
+            const rol = await roleModel.findOne({ name: "customer" })
+            const { name, email, password } = data
+            const usuario = new userModel({ name, password, email, state: 0, roles: [ rol ] })
             const userDB = await usuario.save()
-            // const miembroDB = await miembroModel.findOneAndUpdate({}, {rol:rol._id, usuario:userDB._id}, {upsert:true})
             res.json({ userDB, ok: true })
 
         } catch (error) {

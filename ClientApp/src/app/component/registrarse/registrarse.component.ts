@@ -27,7 +27,7 @@ export class RegistrarseComponent implements OnInit {
   buildForms(){
     this.formRegistrarse = this._fb.group({
       email:['', Validators.compose([Validators.email, Validators.required])],
-      nombre:['', Validators.compose([ Validators.required])],
+      name:['', Validators.compose([ Validators.required])],
       password:['', Validators.compose([Validators.pattern(''), Validators.required])]
     })
   }

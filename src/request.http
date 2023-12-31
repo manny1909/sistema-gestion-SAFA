@@ -28,7 +28,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NThmMTkzM2RmMmE5MTJjYWI4ZmNhNDAiLCJyb2xlcyI6W3siX2lkIjoiNjU4ZjE5MzNkZjJhOTEyY2FiOGZjYTNkIiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJsZXZlbCI6OTl9LHsiX2lkIjoiNjU4ZjE5MzNkZjJhOTEyY2FiOGZjYTNlIiwibmFtZSI6ImN1c3RvbWVyIiwibGV2ZWwiOjF9XSwiaWF0IjoxNzAzOTE5NzAzfQ.5pF2mQ-HGUR_FmfiJhA84Z9Q9drniwb4M8P51CnVTqs
 
 
-POST http://0.0.0.0:3000/api/users/signIn/
+POST http://0.0.0.0:3000/api/v1/users/signIn/
 Content-Type: application/json
 
 {
@@ -36,13 +36,13 @@ Content-Type: application/json
     "password": "SAFA2022"
 }
 
-POST http://0.0.0.0:3000/api/users/signUp/
+POST http://0.0.0.0:3000/api/v1/user/signUp/
 Content-Type: application/json
 
 {
     "user":
         {
-        "nombre": "Galileu Goodfellaaa",
+        "name": "Galileu Goodfellaaa",
         "email": "galileooo@gmail.com",
         "password": "SAFA2022"
         }
