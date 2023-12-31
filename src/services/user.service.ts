@@ -11,6 +11,7 @@ interface UserCreate {
   name: string;
   email: string;
   password: string;
+  state:number
   // ... otros campos
 }
 

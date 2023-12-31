@@ -57,9 +57,8 @@ export const userController = {
             const data: any = req.body.user
             const rol = await roleModel.findOne({ name: "customer" })
             const { name, email, password } = data
-            const usuario = new userModel({ name, password, email, state: 0, roles: [ rol ] })
-            const userDB = await usuario.save()
-            res.json({ userDB, ok: true })
+            const usuario = await _userService.create({name, email, password, state:0})
+            res.json({ usuario, ok: true })
 
         } catch (error) {
             res.status(400).json({ error })
