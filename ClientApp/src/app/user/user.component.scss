@@ -1,15 +1,15 @@
 .app {
-    display: flex;
-    padding: 10px;
+    display: grid;
     column-gap: 10px;
+    grid-template-columns: 1fr 6fr;
   }
 
 .sidebar {
+    min-width: 260px;
     width: 17em;
     color: #f5f5f5;
     background-color: #1e1e1e;
     padding: 1rem;
-    border-radius: 10px;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     z-index: 100;
@@ -28,53 +28,35 @@
 
 .sidebar .slider_title {
     font-size: 48px;
-    font-weight: bold;
     transition: color 0.5s ease;
 }
 
-.sidebar .ipsamp {
-    display: block;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #fff;
-    text-decoration: none;
-}
-
-.sidebar .ipsamp:hover {
-    color: #d31dab;
-    transform: scale(1.05);
-}
-
 .sidebar-nav {
-    height: 68vh;
+    height: 98vh;
     overflow-y: auto;
 }
 
 /* Estilo general del scrollbar */
 .sidebar-nav::-webkit-scrollbar {
     width: 8px;
-    /* Ancho del scrollbar */
     padding: 2px;
 }
 
 /* Estilo del thumb (la parte que puedes arrastrar) */
 .sidebar-nav::-webkit-scrollbar-thumb {
     background-color: #801368;
-    /* Color del thumb */
     border-radius: 6px;
-    /* Bordes redondeados del thumb */
 }
 
 /* Estilo de la pista (el área del scrollbar que no contiene el thumb) */
 .sidebar-nav::-webkit-scrollbar-track {
     background-color: #ffffff;
-    /* Color de la pista */
     border-radius: 5px;
 }
 
 .sidebar-nav ul {
     list-style: none;
-    padding: 0;
+    padding: 0 8px;
     margin: 0;
 }
 
@@ -88,6 +70,7 @@
     color: #fff;
     text-decoration: none;
     height: 100%;
+    margin-bottom: 7px;
 }
 
 .sidebar-nav ul li a mat-icon {
@@ -135,7 +118,7 @@
 /* Aplicar la animación al submenú */
 .sidebar-nav ul li .submenu {
     display: none;
-    animation: slideDown .5s ease-in-out;
+    animation: slideDown .4s ease-in-out;
 }
 
 .sidebar-nav ul li.active .submenu {

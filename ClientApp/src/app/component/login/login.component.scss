@@ -1,5 +1,6 @@
 /* --------- */
 .login-container-card {
+  font-family: 'Ubuntu', sans-serif;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -13,94 +14,54 @@
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
   background-size: cover;
-  animation: change 20s infinite;
 }
-
 .login-card {
-  height: 50vh;
-  width: 30vw;
+  height: auto;
+  width: 420px;
   margin: auto;
   padding: 2rem;
-  display: grid;
-  grid-template-rows: 1fr 3fr 1fr;
-  background-color: #ffffff05;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(25pox);
+  background: rgba(138, 75, 175, .4);
+  border-radius: 16px;
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(138, 75, 175, 0.11);
 }
-
 /* --- Logo dixel */
 .imagen {
   width: 170px;
   height: 120px;
   display: block;
   margin: 0 auto 15px;
-  /* Añadido para espacio entre la imagen y el título */
 }
 
 .login-form-title {
-  font-family: Ubuntu;
   font-size: 28px;
   color: #fff;
   line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
   margin: 15px 0;
-  /* Ajuste de margen superior e inferior */
   animation: cpink-neon 2s infinite alternate;
 }
-
-.container_icon {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  /* Espacio entre ícono y títulos */
-}
-
-.container_icon a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #fff;
-  text-align: right;
-}
-
-.container_icon a mat-icon {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.container_icon a p {
-  font-size: 1.4rem;
-  margin-left: 8px;
-  /* Espacio entre ícono y texto */
-}
-
-.container_icon a:hover {
-  color: #d41872;
-  font-weight: bold;
-}
-
 .login-input,
 .login-input:focus-visible {
+  width: 90%;
   all: unset;
   color: #fff;
-  border-top: none;
-  border-right: none;
-  border-left: none;
+  margin-bottom: 3px;
+  padding: 15px 40px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  width: 100%;
   text-align: center;
   font-size: 1rem;
+  box-sizing: border-box;
   transition: all 0.1s;
 }
-
 .login-input:focus-visible {
   border-bottom: 1.5px solid rgba(94, 2, 117, 0.678);
-  font-family: Ubuntu;
+  outline: none;
 }
-
 .login-form-control {
-  margin: 1rem 0;
+  margin: 0.3rem 0;
   text-align: center;
 }
 
@@ -111,19 +72,22 @@
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  min-width: 60px;
   height: 42px;
-  width: 100%;
+  width: 65%;
   border-radius: 21px;
   margin: 2rem auto;
   background: #d41872;
   position: relative;
   border-color: #d41872;
   z-index: 1;
+  display: block;
+  transition: all 0.3s;
 }
 
 .login-btn-submit:hover {
-  background-color: transparent;
+  background: #8D6CC7;
+  border-color: #8D6CC7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .register-btn-submit {
@@ -137,7 +101,8 @@
 }
 
 .register-btn-submit:hover {
-  color: #a100e0;
+  color: #e26ab5;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.12);
 }
 
 .login-card-header-title {
@@ -146,33 +111,6 @@
   font-weight: 400;
   font-family: sans-serif;
   color: #fff;
-}
-
-/* ----- KEYFRAME IMAGES ----- */
-@keyframes change {
-  0% {
-    background-image: url(../../../assets/images/Imagelon-3.png);
-  }
-
-  20% {
-    background-image: url(../../../assets/images/imagenlon-2.png);
-  }
-
-  40% {
-    background-image: url(../../../assets/images/Imagelonn-1.png);
-  }
-
-  60% {
-    background-image: url(../../../assets/images/imagen-6.png);
-  }
-
-  80% {
-    background-image: url(../../../assets/images/Imagenlon-5.png);
-  }
-
-  100% {
-    background-image: url(../../../assets/images/Imagelon-3.png);
-  }
 }
 
 /* ----- KEYFRAME NEON TEXT ----- */
@@ -198,17 +136,37 @@
   }
 }
 
-/* Animate the size, outside */
+// Animate the size, outside
 .pulse:hover,
 .pulse:focus {
-  cursor: pointer;
+    cursor: pointer;
   animation: pulse 1s;
   box-shadow: 0 0 0 1em transparent;
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 var(--hover);
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+$colors: (
+  pulse: #a100e0,
+);
+// Sass variables compile to a static string; CSS variables are dynamic and inherited
+// Loop through the map and set CSS custom properties using Sass variables
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: #fff;
   }
 }
 

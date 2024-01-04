@@ -3,3 +3,34 @@
     overflow-x: auto;
     padding: 10px;
 }
+button {
+  margin: 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ccc;
+  text-align: left;
+  padding: 0.5rem;
+}
+th {
+  background-color: #f5f5f5;
+}
+td {
+  background-color: #fff;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
+.mat-header-cell, .mat-cell {
+  align-items: center;
+}
+//reto:
+td.mat-cell.mat-column-password {
+  width: 10px; /* Ajusta según lo necesario */
+}
+td.mat-cell.mat-column-token {
+  width: 10px; /* Ajusta según lo necesario */
+}

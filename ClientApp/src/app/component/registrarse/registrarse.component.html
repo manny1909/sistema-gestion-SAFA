@@ -1,18 +1,19 @@
-<div class="registrarse-container-card">
+<section class="registrarse-container-card">
     <form [formGroup]="formRegistrarse" (ngSubmit)="enviar()" class="registrarse-form">
       <img src="https://imgur.com/YHL61AI.png" class="imagen" lt="DixelRP" title="©DixelRP">
-        <div class="registrarse-card">
-            <div class="registrarse-card-header">
-              <div class="container_icon">
+      <h2 class="register-form-title">
+        PICHEL RP - Facciones
+      </h2>
+        <article class="registrarse-card">
+            <header class="registrarse-card-header">
+              <!-- <div class="container_icon">
                 <a href="#">
                   <mat-icon aria-hidden="false" aria-label="volver">arrow_back_ios_new</mat-icon>
-                  <p>Home</p>
+                  <p>Inicio</p>
                 </a>
-              </div>
-                <div class="registrarse-card-header-title">
-                    Registrate
-                </div>
-            </div>
+              </div> -->
+                <h3 class="registrarse-card-header-title">Registrate</h3>
+            </header>
             <div class="registrarse-card-body">
                 <div class="registrarse-form-control">
                     <input type="text" formControlName="name" placeholder="Nombre de usuario" class="registrarse-input">
@@ -24,12 +25,12 @@
                     <input type="password" formControlName="password" placeholder="Contraseña" class="registrarse-input">
                 </div>
             </div>
-            <div class="registrarse-card-footer">
+            <footer class="registrarse-card-footer">
               <button class="registrarse-btn-submit pulse" [ngClass]="{'btn-disabled':formRegistrarse.invalid}" [disabled]="formRegistrarse.invalid">Registrarse</button>
-            </div>
-            <div class="registrarse-card-footer">
-              <a class="login-btn-submit" (click)="ir('login')">¿Ya tienes cuenta? Inicia Sesión</a>
-            </div>
-        </div>
+              <div class="registrarse-card-footer">
+                <a class="login-btn-submit" (click)="ir('login')">¿Ya tienes cuenta? Inicia Sesión</a>
+              </div>
+            </footer>
+        </article>
     </form>
-</div>
+</section>

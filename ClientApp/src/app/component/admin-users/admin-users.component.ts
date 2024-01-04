@@ -37,11 +37,11 @@ export class AdminUsersComponent implements OnInit {
   getTableUser(usuarios: any[]): any[] {
     return usuarios.map(usuario => {
       return usuario
-      
-      
-      
-      
-     
+
+
+
+
+
     })
   }
   addUser() {
