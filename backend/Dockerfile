@@ -1,9 +1,12 @@
 FROM node:16.14.0
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
+RUN mkdir -p /usr/src/backend
+WORKDIR /usr/src/backend
+COPY package.json /usr/src/backend
 RUN npm cache clean --force
 RUN npm install
-COPY . /usr/src/app
+RUN npm rebuild bcrypt --build-from-source
+COPY . /usr/src/backend
 EXPOSE 3000
+RUN npm run build
+RUN npm run seed
 CMD ["npm","start"]

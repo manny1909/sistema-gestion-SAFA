@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon dist/src/index.js",
-    "seed": "node dist/src/seeders/index.js",
+    "seed": "node dist/src/seeders/seed.js",
     "build-dev": "tsc --watch",
     "start": "node dist/src/index.js",
     "build": "tsc"

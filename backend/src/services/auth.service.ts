@@ -28,6 +28,9 @@ export class AuthService {
     async login(email:string, password:string){
         try {
             const user = await this.findByEmail(email)
+            if (!user) {
+                return false
+            }
             const isMatch = await this.verifyPassword(password, user.password)
             if (!isMatch) {
                 return false

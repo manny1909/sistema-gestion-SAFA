@@ -1,7 +1,6 @@
-import mongoose from "mongoose"
 
 export interface Rol {
-    _id?:string | mongoose.Types.ObjectId | any
+    _id?:string | any
     nombre:string
     nivel:number
 }

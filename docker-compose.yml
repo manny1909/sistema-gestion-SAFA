@@ -11,6 +11,8 @@ services:
 
   # Servicio de Node.js con Express
   nodejs:
+    env_file:
+      - .env
     build:
       context: ./backend
     container_name: nodejs

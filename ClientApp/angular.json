@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "bda6b865-c81e-4d62-a50d-a3d27c4ef6d6"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -78,6 +81,10 @@
             "development": {
               "browserTarget": "ClientApp:build:development"
             }
+          },
+          "options": {
+            "host": "0.0.0.0",
+            "port": 4200
           },
           "defaultConfiguration": "development"
         },
