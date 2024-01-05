@@ -1,0 +1,33 @@
+version: "3"
+services:
+  # Servicio de MongoDB
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  # Servicio de Node.js con Express
+  nodejs:
+    build:
+      context: ./backend
+    container_name: nodejs
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+
+  # Servicio de Angular
+  angular:
+    build:
+      context: ./ClientApp
+    container_name: angular
+    ports:
+      - "4200:4200"
+    depends_on:
+      - nodejs
+
+volumes:
+  mongo-data:
