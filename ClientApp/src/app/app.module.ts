@@ -25,13 +25,13 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     LoginComponent,
     RegistrarseComponent,
     LandingComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     //angular material
@@ -39,8 +39,6 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     MatButtonModule,
     MatIconModule,
     //
-    AdminModule,
-    UserModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

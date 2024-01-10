@@ -5,11 +5,18 @@ import { RegistrarseComponent } from './component/registrarse/registrarse.compon
 import { LandingComponent } from './component/landing/landing.component';
 import { AdminUsersComponent } from './component/admin-users/admin-users.component';
 import { AdminComponent } from './admin/admin.component';
+import { NoAuthGuard } from './guards/no-auth.guard';
+import { AdminModule } from './admin/admin.module';
+import { UserModule } from './user/user.module';
+import { AuthGuard } from './guards/auth.guard';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  {path:'login', component:LoginComponent},
-  {path:'registrarse', component:RegistrarseComponent},
-  {path:'', component:LandingComponent},
+  { path: 'login', canActivate: [NoAuthGuard], component: LoginComponent },
+  { path: 'registrarse', canActivate: [NoAuthGuard], component: RegistrarseComponent },
+  { path: 'admin', canActivateChild: [AuthGuard], loadChildren: () => AdminModule, component: AdminComponent },
+  { path: 'user', canActivateChild: [AuthGuard], loadChildren: () => UserModule, component: UserComponent },
+  { path: '', canActivate: [NoAuthGuard], component: LandingComponent },
 ];
 
 @NgModule({

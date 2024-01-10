@@ -6,9 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   {
-    path: 'user', component: UserComponent, children: [
-
-    ]
+    path: ''
   }
   // Puedes agregar más rutas según sea necesario
 ];
@@ -21,6 +19,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MatIconModule,
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class UserModule { }

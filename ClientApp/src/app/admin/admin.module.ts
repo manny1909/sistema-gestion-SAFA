@@ -5,15 +5,12 @@ import { AdminComponent } from './admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
-  {
-    path: 'admin', component: AdminComponent, children: [
-      { path: 'adminUsers', component: AdminUsersComponent },
-      { path: '', component: AdminUsersComponent },
-      { path: '**', redirectTo:'' },
-    ]
-  }
+  { path: 'adminUsers', component: AdminUsersComponent },
+  { path: '', redirectTo: 'adminUsers' },
+  { path: '**', redirectTo: '' },
   // Puedes agregar más rutas según sea necesario
 ];
 
@@ -27,6 +24,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatTableModule,
     MatIconModule,
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class AdminModule { }

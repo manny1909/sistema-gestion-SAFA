@@ -3,7 +3,9 @@ services:
   # Servicio de MongoDB
   mongo:
     image: mongo
-    container_name: mongodb
+    container_name: mongo
+    networks:
+      - mean-stack-network
     ports:
       - "27017:27017"
     volumes:
@@ -11,25 +13,32 @@ services:
 
   # Servicio de Node.js con Express
   nodejs:
-    env_file:
-      - .env
     build:
       context: ./backend
     container_name: nodejs
+    networks:
+      - mean-stack-network
     ports:
       - "3000:3000"
     depends_on:
       - mongo
+    environment: 
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongo:27017
 
   # Servicio de Angular
   angular:
     build:
       context: ./ClientApp
     container_name: angular
+    networks:
+      - mean-stack-network
     ports:
       - "4200:4200"
     depends_on:
       - nodejs
-
+networks:
+  mean-stack-network:
+    driver: bridge
 volumes:
   mongo-data:

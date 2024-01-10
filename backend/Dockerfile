@@ -8,5 +8,4 @@ RUN npm rebuild bcrypt --build-from-source
 COPY . /usr/src/backend
 EXPOSE 3000
 RUN npm run build
-RUN npm run seed
 CMD ["npm","start"]
