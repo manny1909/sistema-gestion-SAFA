@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authService:AuthService) { }
 
   ngOnInit(): void {
     const submenuItems = document.querySelectorAll('.submenu');
@@ -30,6 +31,10 @@ export class AdminComponent implements OnInit {
       }
     });
   }
-
+  logout(){
+    this._authService.logout().subscribe(() => {
+      console.log('cierre de sesión')
+     })
+  }
 }
 

@@ -24,16 +24,18 @@ export const userController = {
         if (!email || !password) {
             return res.status(401).json({ error: 'Credenciales incorrectas' })
         }
-        const token = await _authService.login(email, password)
-        if (!token) {
+        const response = await _authService.login(email, password)
+        
+        if (!response || !response.token) {
             return res.status(401).json({ error: 'Credenciales incorrectas' })
         }
-        return res.status(200).json({ token })
+        const {token, roles} = response
+        return res.status(200).json({ token,  roles})
     },
     logout: async (req: any, res: Response) => { 
         try {
-            const _id = req.body._id
-            await userModel.findByIdAndUpdate(_id, { token: false })
+            const _id = req.user?.sub
+            await userModel.findByIdAndUpdate(_id, { token: null })
             res.status(200).json(true)
 
         } catch (error) {
@@ -68,7 +70,6 @@ export const userController = {
         const payload = req.user
         const _id = payload.sub
         const user = await _userService.findOne(_id)
-        delete user.password
         res.status(200).json({user})
     }
 

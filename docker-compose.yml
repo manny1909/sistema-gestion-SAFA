@@ -13,6 +13,8 @@ services:
 
   # Servicio de Node.js con Express
   nodejs:
+    env_file:
+      - ./backend/.env.prod
     build:
       context: ./backend
     container_name: nodejs
@@ -24,7 +26,6 @@ services:
       - mongo
     environment: 
       - NODE_ENV=development
-      - MONGODB_URI=mongodb://mongo:27017
 
   # Servicio de Angular
   angular:

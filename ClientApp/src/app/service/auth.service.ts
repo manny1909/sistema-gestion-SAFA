@@ -23,11 +23,23 @@ export class AuthService {
         if (response.token) {
           this._storageService.setToken(response.token)
         }
+        if(response.roles && response.roles instanceof Array){
+          const roles: Array<string> = response.roles
+          const _route = roles.findIndex(x=>x =='Administrador')!=-1 ? 'admin' : 'user'
+           this._router.navigate([_route])
+        }
       }),
       catchError(this.handleError<User>('login'))
     );
   }
-
+  logout(): Observable<undefined> {
+    return this._http.get<any>(environment.apiURL + 'user/logout/').pipe(
+      tap(() => {
+        this._storageService.removeToken()
+        this._router.navigate(['login'])
+      })
+    )
+  }
   getUserByToken(): Observable<any> {
     return this._http.post<any>(environment.apiURL + 'user/getUserByToken', {}).pipe(
       tap((response) => {

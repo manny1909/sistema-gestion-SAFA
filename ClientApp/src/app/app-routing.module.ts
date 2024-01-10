@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'registrarse', canActivate: [NoAuthGuard], component: RegistrarseComponent },
   { path: 'admin', canActivateChild: [AuthGuard], loadChildren: () => AdminModule, component: AdminComponent },
   { path: 'user', canActivateChild: [AuthGuard], loadChildren: () => UserModule, component: UserComponent },
-  { path: '', canActivate: [NoAuthGuard], component: LandingComponent },
+  { path: '', pathMatch:'full', canActivate: [NoAuthGuard], component: LandingComponent },
 ];
 
 @NgModule({

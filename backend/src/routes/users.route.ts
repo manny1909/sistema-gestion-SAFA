@@ -35,4 +35,11 @@ userRoute.route('/getUserByToken')
         (req,res)=>{
         userController.getUserByToken(req,res)
     })
+userRoute.route('/logout')
+    .get(
+        passport.authenticate('jwt', {session:false}),
+        (req, res) => { 
+            userController.logout(req, res)
+         }
+    )
 export default userRoute

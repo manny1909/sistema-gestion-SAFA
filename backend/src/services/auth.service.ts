@@ -38,7 +38,8 @@ export class AuthService {
             const token = this.signToken(user)
             user.token = token
             await user.save()
-            return token
+            const roles = user.roles ? user.roles.map((r:any)=>r.name) : []
+            return {token, roles}
         } catch (error) {
             throw error
         }

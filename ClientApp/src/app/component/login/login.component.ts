@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-          this.ir('admin/adminUsers')
         }
         else {
           Swal.close()
