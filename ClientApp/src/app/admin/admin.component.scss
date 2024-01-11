@@ -1,22 +1,30 @@
 .admin-container {
+  height: 100vh;
   margin: 0;
   padding: 0;
+  
+}
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.mat-drawer-content {
+  height: 100%;
 }
 
 .sidebar-container{
-  height: fit-content;
-  overflow: visible;
-  padding: 10px;
+  height: 100%;
+  overflow: hidden;
   border: none;
 }
 .sidebar {
+  height: 100%;
   min-width: 260px;
   color: #f5f5f5;
   background-color: #1e1e1e;
-  padding: 1rem;
-  border-radius: 15px;
-  -webkit-overflow-scrolling: touch;
   z-index: 100;
+  overflow: auto;
 }
 .imagen {
   width: 80px;
