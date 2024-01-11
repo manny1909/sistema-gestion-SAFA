@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { CreateUserComponent } from 'src/app/modals/create-user/create-user.component';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
@@ -22,7 +24,7 @@ export class AdminUsersComponent implements OnInit {
   ]
   columnsToDisplay: string[] = this.displayedColumnsUsuarios.slice()
   dataTableUsuarios: MatTableDataSource<any> = new MatTableDataSource()
-  constructor(private _usuarioService: UsuarioService) { }
+  constructor(private _usuarioService: UsuarioService, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getAllUsers()
@@ -43,6 +45,12 @@ export class AdminUsersComponent implements OnInit {
 
 
     })
+  }
+  openCreateModal(){
+    const dialogRef = this.dialog.open(CreateUserComponent)
+    dialogRef.afterClosed().subscribe((result) => { 
+      console.log(`Dialog result: ${result}`)
+     })
   }
   addUser() {
 

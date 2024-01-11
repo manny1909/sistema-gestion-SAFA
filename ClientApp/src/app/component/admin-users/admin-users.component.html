@@ -1,6 +1,5 @@
-<div class="app">
-  <button mat-raised-button (click)="addUser()"> Add column </button>
-  <button mat-raised-button (click)="removeUser()"> Remove column </button>
+<div>
+  <button mat-raised-button (click)="openCreateModal()"> Crear nuevo usuario </button>
   <div class="user-table">
     <table mat-table [dataSource]="dataTableUsuarios" class="mat-elevation-z8" style="margin: 1rem auto">
       <ng-container matColumnDef="discord">

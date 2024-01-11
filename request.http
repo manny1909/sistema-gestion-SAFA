@@ -1,0 +1,47 @@
+GET http://0.0.0.0:3000/api
+
+
+
+
+POST http://0.0.0.0:3000/api/v1/user/signIn/
+Content-Type: application/json
+
+{
+    "email": "magnuscoltello@gmail.com",
+    "password": "123456"
+}
+
+POST http://0.0.0.0:3000/api/v1/user/getUsers/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTkwYWIxYjllOTA4NWQ4OWZkMmM1ZjQiLCJyb2xlcyI6W3siX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWVlIiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJsZXZlbCI6OTl9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWVmIiwibmFtZSI6ImN1c3RvbWVyIiwibGV2ZWwiOjF9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYwIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBUEQiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYxIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBRkEiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYyIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIEZCSSIsImxldmVsIjoyMH1dLCJpYXQiOjE3MDQwNzgyODl9.6AJmmvTNz14AzxekkcLX2f_L8O1-u9MsT9u-OxIzp0A
+
+POST http://0.0.0.0:3000/api/v1/user/getUserByToken/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTkwYWIxYjllOTA4NWQ4OWZkMmM1ZjQiLCJyb2xlcyI6W3siX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWVlIiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJsZXZlbCI6OTl9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWVmIiwibmFtZSI6ImN1c3RvbWVyIiwibGV2ZWwiOjF9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYwIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBUEQiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYxIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBRkEiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYyIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIEZCSSIsImxldmVsIjoyMH1dLCJpYXQiOjE3MDQwNzgyODl9.6AJmmvTNz14AzxekkcLX2f_L8O1-u9MsT9u-OxIzp0A
+
+
+
+POST http://0.0.0.0:3000/api/v1/user/signUp/
+Content-Type: application/json
+
+{
+    "user":
+        {
+        "name": "Galileu Goodfellaaa",
+        "email": "galileooo@gmail.com",
+        "password": "SAFA2022"
+        }
+}
+
+POST http://0.0.0.0:3000/api/v1/user/create/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTkwYWIxYjllOTA4NWQ4OWZkMmM1ZjQiLCJyb2xlcyI6W3siX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWVlIiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJsZXZlbCI6OTl9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWVmIiwibmFtZSI6ImN1c3RvbWVyIiwibGV2ZWwiOjF9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYwIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBUEQiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYxIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBRkEiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5MGFiMWI5ZTkwODVkODlmZDJjNWYyIiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIEZCSSIsImxldmVsIjoyMH1dLCJpYXQiOjE3MDQwNzgyODl9.6AJmmvTNz14AzxekkcLX2f_L8O1-u9MsT9u-OxIzp0A
+
+{
+    "user":
+        {
+        "name": "prueba",
+        "email": "galileooo333@gmail.com",
+        "password": "SAFA2022"
+        }
+}

@@ -6,9 +6,11 @@ const email = Joi.string();
 const password = Joi.string();
 
 const createUserScheme = Joi.object({
-  username: name.required(),
-  email: email.required(),
-  password: password.required(),
+  user: {
+    name: name.required(),
+    email: email.required(),
+    password: password.required(),
+  }
 });
 
 const updateUserScheme = Joi.object({

@@ -2,20 +2,14 @@ import express from 'express'
 import { userController } from '../controller/user.controller'
 import { checkRoles } from '../middlewares/auth.handler'
 import passport from 'passport'
+import validatorHandler from '../middlewares/validator.handler'
+import { createUserScheme } from '../schemas/user.schema'
 const userRoute = express()
 userRoute.get('/', (req, res) => {
   res.send('GET request to the homepage')
 })
-userRoute.route('/getManny') 
-    .get(
-      // authoritation.admin,
-      (req,res)=>{
-        // const response:object=userController.getManny()
-        // res.json(response)
-    })
 userRoute.route('/getUsers') 
     .post(
-        // authoritation.admin,
         passport.authenticate('jwt', {session:false}),
         checkRoles('Administrador'),
         (req,res)=>{
@@ -23,12 +17,22 @@ userRoute.route('/getUsers')
     })
 userRoute.route('/signIn')
     .post((req,res)=>{
-        userController.iniciarSesion(req,res)
+        userController.login(req,res)
     })
 userRoute.route('/signUp')
-    .post((req,res)=>{
-        userController.registrarse(req,res)
+    .post(
+        validatorHandler(createUserScheme, 'body'),
+        (req,res)=>{
+        userController.signUp(req,res)
     })
+userRoute.route('/create')
+    .post(passport.authenticate('jwt', { session: false }),
+    checkRoles('Administrador'),
+    validatorHandler(createUserScheme, 'body'),
+    (req, res) => { 
+        userController.createUser(req, res)
+     }
+    )
 userRoute.route('/getUserByToken')
     .post(
         passport.authenticate('jwt', {session:false}),

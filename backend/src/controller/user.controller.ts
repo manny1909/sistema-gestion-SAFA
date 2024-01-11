@@ -11,15 +11,8 @@ import UserService from '../services/user.service'
 const _userService = new UserService()
 config()
 const _authService = new AuthService()
-export const authenticationController: { secret: Secret | null, signIn: any, signinOpt: SignOptions } = {
-    secret: process.env.SECRET || null,
-    signinOpt: {},
-    signIn(user: any) {
-        return this.secret ? sign({ user }, this.secret) : null
-    }
-}
 export const userController = {
-    iniciarSesion: async (req: any, res: Response) => {
+    login: async (req: any, res: Response) => {
         const { email, password } = req.body
         if (!email || !password) {
             return res.status(401).json({ error: 'Credenciales incorrectas' })
@@ -42,11 +35,7 @@ export const userController = {
             res.status(400).json(false)
         }
     },
-    getManny(): {} {
-        return {
-            "name": "manny"
-        }
-    },
+    
     getUsers: async (req: any, res: Response) => {
         const users = await _userService.find()
         if (!users) {
@@ -54,7 +43,19 @@ export const userController = {
         }
         return res.status(200).json(users)
     },
-    registrarse: async (req: any, res: Response) => {
+    signUp: async (req: any, res: Response) => {
+        try {
+            const data: any = req.body.user
+            const rol = await roleModel.findOne({ name: "customer" })
+            const { name, email, password } = data
+            const usuario = await _userService.create({name, email, password, state:0})
+            res.json({ usuario, ok: true })
+
+        } catch (error) {
+            res.status(400).json({ error })
+        }
+    },
+    createUser: async (req: any, res: Response) => {
         try {
             const data: any = req.body.user
             const rol = await roleModel.findOne({ name: "customer" })

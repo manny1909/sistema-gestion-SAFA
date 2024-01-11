@@ -1,14 +1,20 @@
-.app {
-  display: grid;
-  column-gap: 10px;
-  grid-template-columns: 1fr 6fr;
+.admin-container {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-container{
+  height: fit-content;
+  overflow: visible;
+  padding: 10px;
+  border: none;
 }
 .sidebar {
   min-width: 260px;
   color: #f5f5f5;
   background-color: #1e1e1e;
   padding: 1rem;
-  overflow: hidden;
+  border-radius: 15px;
   -webkit-overflow-scrolling: touch;
   z-index: 100;
 }
@@ -26,8 +32,6 @@
   transition: color 0.5s ease;
 }
 .sidebar-nav {
-  height: 98vh;
-  overflow-y: auto;
 }
 /* Estilo general del scrollbar */
 .sidebar-nav::-webkit-scrollbar {
@@ -62,7 +66,6 @@
   align-items: center;
   color: #fff;
   text-decoration: none;
-  height: 100%;
 }
 
 .sidebar-nav ul li a mat-icon {
