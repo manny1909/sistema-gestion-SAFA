@@ -1,0 +1,59 @@
+<div class="admin-container">
+  <mat-drawer-container>
+    <mat-drawer mode="side" opened class="sidebar-container">
+      <aside class="sidebar">
+        <a href="samp://S1.DIXEL-RP.COM:7777" class="logo-dixel">
+          <img src="https://imgur.com/YHL61AI.png" class="imagen" alt="S1.DIXEL-RP.COM" title="©DixelRP">
+        </a>
+        <h1 class="slider-title"> Facciones </h1>
+        <nav class="sidebar-nav">
+          <ul class="sidebar-list">
+            <li>
+              <app-accordion-sidenav>
+                <div class="header-accordion">
+                  <mat-icon>apps</mat-icon>
+                  <span>Dashboard</span>
+                </div>
+                <ul class="sidebar-list">
+                  <li (click)="navega(undefined)">
+                    <span>
+                      perfil
+                    </span>
+                  </li>
+                </ul>
+              </app-accordion-sidenav>
+            </li>
+            <ng-content></ng-content>
+            <li>
+              <app-accordion-sidenav>
+                <div class="header-accordion">
+                  <mat-icon>settings</mat-icon>
+                  <span>Opciones</span>
+                </div>
+                <ul class="sidebar-list">
+                  <li (click)="navega(undefined)">
+                    <span>
+                      Configuración
+                    </span>
+                  </li>
+                </ul>
+              </app-accordion-sidenav>
+
+            </li>
+            <li (click)="this.logout()">
+              <div class="item-nav">
+                <mat-icon>keyboard_tab</mat-icon>
+                <span class="logout">
+                  Cerrar session
+                </span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

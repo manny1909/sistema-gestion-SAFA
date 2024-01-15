@@ -16,15 +16,17 @@ export class AuthService {
 
   constructor(private _http: HttpClient, private _storageService: StorageService, private _router: Router) {
   }
-
+  registrarse(user: any): Observable<any> {
+    return this._http.post(environment.apiURL+'auth/signUp',{user})
+  }
   login(loginForm: { email: string, pass: string }): Observable<any> {
-    return this._http.post<any>(environment.apiURL + 'user/signIn/', loginForm).pipe(
+    return this._http.post<any>(environment.apiURL + 'auth/signIn/', loginForm).pipe(
       tap((response) => {
         if (response.token) {
           this._storageService.setToken(response.token)
         }
         if(response.roles && response.roles instanceof Array){
-          const roles: Array<string> = response.roles
+          const roles: Array<string> = response.roles.map((x:any)=> x.name)
           const _route = roles.findIndex(x=>x =='Administrador')!=-1 ? 'admin' : 'user'
            this._router.navigate([_route])
         }
@@ -33,7 +35,7 @@ export class AuthService {
     );
   }
   logout(): Observable<undefined> {
-    return this._http.get<any>(environment.apiURL + 'user/logout/').pipe(
+    return this._http.get<any>(environment.apiURL + 'auth/logout/').pipe(
       tap(() => {
         this._storageService.removeToken()
         this._router.navigate(['login'])
@@ -41,7 +43,7 @@ export class AuthService {
     )
   }
   getUserByToken(): Observable<any> {
-    return this._http.post<any>(environment.apiURL + 'user/getUserByToken', {}).pipe(
+    return this._http.post<any>(environment.apiURL + 'auth/getUserByToken', {}).pipe(
       tap((response) => {
         const user: User = response.user;
         if (user) {

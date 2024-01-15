@@ -5,11 +5,11 @@ import { CreateUserComponent } from 'src/app/modals/create-user/create-user.comp
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
-  selector: 'app-admin-users',
-  templateUrl: './admin-users.component.html',
-  styleUrls: ['./admin-users.component.scss']
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class AdminUsersComponent implements OnInit {
+export class UsersComponent implements OnInit {
 
   usuarios: any[] = new Array()
   displayedColumnsUsuarios: string[] = [
@@ -24,7 +24,7 @@ export class AdminUsersComponent implements OnInit {
   ]
   columnsToDisplay: string[] = this.displayedColumnsUsuarios.slice()
   dataTableUsuarios: MatTableDataSource<any> = new MatTableDataSource()
-  constructor(private _usuarioService: UsuarioService, public dialog:MatDialog) { }
+  constructor(private _usuarioService: UsuarioService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAllUsers()
@@ -46,11 +46,11 @@ export class AdminUsersComponent implements OnInit {
 
     })
   }
-  openCreateModal(){
+  openCreateModal() {
     const dialogRef = this.dialog.open(CreateUserComponent)
-    dialogRef.afterClosed().subscribe((result) => { 
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`)
-     })
+    })
   }
   addUser() {
 
@@ -58,4 +58,6 @@ export class AdminUsersComponent implements OnInit {
   removeUser() {
 
   }
+
 }
+

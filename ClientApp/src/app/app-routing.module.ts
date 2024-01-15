@@ -1,22 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './component/login/login.component';
-import { RegistrarseComponent } from './component/registrarse/registrarse.component';
-import { LandingComponent } from './component/landing/landing.component';
-import { AdminUsersComponent } from './component/admin-users/admin-users.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './component/admin/admin.component';
 import { NoAuthGuard } from './guards/no-auth.guard';
-import { AdminModule } from './admin/admin.module';
-import { UserModule } from './user/user.module';
 import { AuthGuard } from './guards/auth.guard';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './component/user/user.component';
+import { NoAuthModule } from './modules/no-auth/no-auth.module';
 
 const routes: Routes = [
-  { path: 'login', canActivate: [NoAuthGuard], component: LoginComponent },
-  { path: 'registrarse', canActivate: [NoAuthGuard], component: RegistrarseComponent },
-  { path: 'admin', canActivateChild: [AuthGuard], loadChildren: () => AdminModule, component: AdminComponent },
-  { path: 'user', canActivateChild: [AuthGuard], loadChildren: () => UserModule, component: UserComponent },
-  { path: '', pathMatch:'full', canActivate: [NoAuthGuard], component: LandingComponent },
+
+  { path: 'admin', canActivateChild: [AuthGuard], loadChildren: () => import('./modules/admin/admin.module').then((x) => x.AdminModule), component: AdminComponent },
+  { path: 'user', canActivateChild: [AuthGuard], loadChildren: () => import('./modules/user/user.module').then(x => x.UserModule), component: UserComponent },
+  { path: '', canActivate: [NoAuthGuard], loadChildren: () => NoAuthModule },
+  { path: '**', redirectTo:''}
 ];
 
 @NgModule({

@@ -1,9 +1,8 @@
-import boom from '@hapi/boom';
 import bcrypt from 'bcrypt';
-import { Document, Model } from 'mongoose';
 
 // Asegúrate de importar tu modelo de mongoose llamado User
-import { userModel } from './../models/user'; 
+import { userModel } from './../models/user';
+import { User } from '../interfaces/User';
 
 interface UserCreate {
   // Define la estructura de un usuario al ser creado
@@ -11,16 +10,20 @@ interface UserCreate {
   name: string;
   email: string;
   password: string;
-  state:number
+  state: number
   // ... otros campos
 }
 
 class UserService {
   private users: UserCreate[] = [];
-
+  
+  async findByIdAndUpdate(_id: any, value: object) {
+    return await userModel.findByIdAndUpdate(_id, value)
+  }
   async create(user: UserCreate): Promise<UserCreate> {
     user.password = await bcrypt.hash(user.password, 10);
     const response = await userModel.create(user);
+    console.log(response)
     return response;
   }
 
@@ -30,7 +33,15 @@ class UserService {
     return response;
   }
 
-  async findOne(_id: string): Promise<any> {
+  async findByEmail(email: string) {
+    const user:User | null = await userModel.findOne({ email })
+    if (!user) {
+      return null
+    }
+    return user
+  }
+
+  async findOne(_id: string): Promise<User | null> {
     const response = await userModel.findOne({ _id });
     return response
   }
@@ -43,7 +54,7 @@ class UserService {
   // Agrega la implementación del método update
   async update(id: string, body: Partial<UserCreate>): Promise<UserCreate | null> {
     // Aquí debes implementar la lógica para actualizar un usuario
-    const response = await userModel.findByIdAndUpdate(id, {...body}, { new: true });
+    const response = await userModel.findByIdAndUpdate(id, { ...body }, { new: true });
     return response ? response : null;
   }
 }

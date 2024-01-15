@@ -1,8 +1,10 @@
 import { Strategy, VerifyFunction } from 'passport-local';
 import { AuthService } from '../../../services/auth.service';
-import { Request } from 'express'; // Ajusta según la ubicación real del módulo 'express' en tu proyecto
+import UserService from '../../../services/user.service';
+import { User } from '../../../interfaces/User';
 
 const _authService = new AuthService();
+const _userService = new UserService();
 
 const LocalStrategy = new Strategy(
   {
@@ -12,7 +14,17 @@ const LocalStrategy = new Strategy(
   },
   async (username: string, password: string, done: (error: any, user?: any, options?: any) => void) => {
     try {
-      const user = await _authService.findUser(username, password);
+      if (!username || !password) {
+        throw new Error('no data')
+      }
+      const user: User | null = await _userService.findByEmail(username)
+      if (!user) {
+        throw new Error('User not found')
+      }
+      const matchPassword = _authService.verifyPassword(password, user.password)
+      if (!matchPassword) {
+        throw new Error('Unauthorized')
+      }
       done(null, user);
     } catch (error) {
       // Debe enviarse el error y false para indicar que algo salió mal

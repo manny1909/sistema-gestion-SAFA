@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import Swal from 'sweetalert2';
 
@@ -12,13 +13,13 @@ import Swal from 'sweetalert2';
 export class RegistrarseComponent implements OnInit {
 
   formRegistrarse:FormGroup = this._fb.group({})
-  
-  constructor(private _fb:FormBuilder, 
-    private _usuarioServ:UsuarioService,
+
+  constructor(private _fb:FormBuilder,
+    private _authService:AuthService,
     private _router:Router) {
       this.buildForms()
      }
-  
+
   ngOnInit(): void {
   }
   ir(ruta:string){
@@ -38,7 +39,7 @@ export class RegistrarseComponent implements OnInit {
         title:'Cargando...',
         didOpen: ()=> Swal.showLoading()
       })
-      this._usuarioServ.registrarse(form).subscribe(({userDB, miembroDB, ok})=>{
+      this._authService.registrarse(form).subscribe(({ok})=>{
         if (ok) {
           Swal.fire({
             position: 'center',
@@ -52,7 +53,7 @@ export class RegistrarseComponent implements OnInit {
         else{
           Swal.close()
         }
-        
+
       },({error})=>{
         Swal.fire({
           icon: 'error',

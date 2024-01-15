@@ -1,0 +1,100 @@
+.admin-container {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+}
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.mat-drawer-content {
+  height: 100%;
+}
+
+.sidebar-container {
+  height: 100%;
+  overflow: hidden;
+  border: none;
+}
+
+.sidebar {
+  height: 100%;
+  min-width: 260px;
+  color: #f5f5f5;
+  background-color: #1e1e1e;
+  z-index: 100;
+  overflow: auto;
+}
+
+.imagen {
+  width: 80px;
+  height: 60px;
+  vertical-align: middle;
+  transition: transform 1s ease;
+}
+
+.imagen:hover {
+  transform: rotateY(360deg);
+}
+
+.logo-dixel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.item-nav {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  text-align: center;
+  padding: .6rem;
+}
+
+.sidebar .slider_title {
+  font-size: 48px;
+  transition: color 0.5s ease;
+}
+
+
+/* Estilo general del scrollbar */
+.sidebar-nav::-webkit-scrollbar {
+  width: 8px;
+  /* Ancho del scrollbar */
+  padding: 2px;
+}
+
+/* Estilo del thumb (la parte que puedes arrastrar) */
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background-color: #801368;
+  /* Color del thumb */
+  border-radius: 6px;
+  /* Bordes redondeados del thumb */
+}
+
+/* Estilo de la pista (el área del scrollbar que no contiene el thumb) */
+.sidebar-nav::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  /* Color de la pista */
+  border-radius: 5px;
+}
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: .5rem;
+}
+.sidebar-list li {
+  background-color: #2f2e2e;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+.sidebar-list li:hover {
+  cursor: pointer;
+}
