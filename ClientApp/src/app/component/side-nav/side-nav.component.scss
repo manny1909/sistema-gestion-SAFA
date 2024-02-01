@@ -1,4 +1,4 @@
-.admin-container {
+.sidenav-container {
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -45,7 +45,7 @@
   align-items: center;
 }
 
-.slider-title {
+.sidenav-title {
   text-align: center;
   font-size: 2rem;
 }
@@ -65,25 +65,24 @@
 
 
 /* Estilo general del scrollbar */
-.sidebar-nav::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
   width: 8px;
   /* Ancho del scrollbar */
   padding: 2px;
 }
 
 /* Estilo del thumb (la parte que puedes arrastrar) */
-.sidebar-nav::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb {
   background-color: #801368;
   /* Color del thumb */
-  border-radius: 6px;
+  border-radius: 5px;
   /* Bordes redondeados del thumb */
 }
 
 /* Estilo de la pista (el área del scrollbar que no contiene el thumb) */
-.sidebar-nav::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track {
   background-color: #ffffff;
   /* Color de la pista */
-  border-radius: 5px;
 }
 .sidebar-list {
   list-style: none;
