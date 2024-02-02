@@ -14,7 +14,7 @@ import { AdminComponent } from '../../component/admin/admin.component';
 import { CreateUserComponent } from '../../modals/create-user/create-user.component';
 import { SideNavComponent } from 'src/app/component/side-nav/side-nav.component';
 import { accordionSidenavComponent } from 'src/app/component/accordeon-sidenav/accordion-sidenav.component';
-import { SharedModule } from '../shared/shared.module';
+
 const routes: Routes = [
   { path: 'adminUsers', component: UsersComponent },
   { path: '', pathMatch:'full', redirectTo: 'adminUsers' },
@@ -24,16 +24,15 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        SharedModule,
-        MatTableModule,
-        MatIconModule,
-        MatDialogModule,
-        UsersComponent,
-        AdminComponent,
-        CreateUserComponent,
-    ],
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatTableModule,
+    MatIconModule,
+    MatDialogModule,
+    UsersComponent,
+    AdminComponent,
+    CreateUserComponent,
+],
     exports: [
         RouterModule
     ]

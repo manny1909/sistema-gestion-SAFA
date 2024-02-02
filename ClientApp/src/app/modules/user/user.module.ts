@@ -4,7 +4,7 @@ import { UserComponent } from '../../component/user/user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { SideNavComponent } from 'src/app/component/side-nav/side-nav.component';
-import { SharedModule } from '../shared/shared.module';
+
 
 const routes: Routes = [
   {
@@ -15,12 +15,11 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        SharedModule,
-        MatIconModule,
-        UserComponent,
-    ],
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatIconModule,
+    UserComponent,
+],
     exports: [RouterModule]
 })
 export class UserModule { }
