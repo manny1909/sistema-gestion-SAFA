@@ -32,7 +32,7 @@ $my-primary-color: (
         A700 : #000000,
     )
 );
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 
 @include mat.core();
 
