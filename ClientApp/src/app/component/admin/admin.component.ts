@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { faction } from 'src/app/interfaces/types';
+import { MatIconModule } from '@angular/material/icon';
+import { accordionSidenavComponent } from '../accordeon-sidenav/accordion-sidenav.component';
+import { SideNavComponent } from '../side-nav/side-nav.component';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+    selector: 'app-admin',
+    templateUrl: './admin.component.html',
+    styleUrls: ['./admin.component.scss'],
+    standalone: true,
+    imports: [SideNavComponent, accordionSidenavComponent, MatIconModule]
 })
 export class AdminComponent {
 

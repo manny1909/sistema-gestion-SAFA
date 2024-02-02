@@ -8,8 +8,8 @@ describe('AccordeonSidenavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ accordionSidenavComponent ]
-    })
+    imports: [accordionSidenavComponent]
+})
     .compileComponents();
   });
 

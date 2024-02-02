@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import Swal from 'sweetalert2';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-registrarse',
-  templateUrl: './registrarse.component.html',
-  styleUrls: ['./registrarse.component.scss']
+    selector: 'app-registrarse',
+    templateUrl: './registrarse.component.html',
+    styleUrls: ['./registrarse.component.scss'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, NgClass]
 })
 export class RegistrarseComponent implements OnInit {
 

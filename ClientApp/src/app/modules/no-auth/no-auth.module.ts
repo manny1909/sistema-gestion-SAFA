@@ -20,20 +20,18 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    LandingComponent,
-    RegistrarseComponent,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    FormsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-  ],
-  exports:[
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FormsModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        LoginComponent,
+        LandingComponent,
+        RegistrarseComponent,
+    ],
+    exports: [
+        RouterModule
+    ]
 })
 export class NoAuthModule { }

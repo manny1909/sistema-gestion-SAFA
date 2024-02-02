@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { faction } from 'src/app/interfaces/types';
 import { AuthService } from 'src/app/service/auth.service';
+import { MatIconModule } from '@angular/material/icon';
+import { accordionSidenavComponent } from '../accordeon-sidenav/accordion-sidenav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-side-nav',
-  templateUrl: './side-nav.component.html',
-  styleUrls: ['./side-nav.component.scss']
+    selector: 'app-side-nav',
+    templateUrl: './side-nav.component.html',
+    styleUrls: ['./side-nav.component.scss'],
+    standalone: true,
+    imports: [MatSidenavModule, accordionSidenavComponent, MatIconModule, RouterOutlet]
 })
 
 export class SideNavComponent implements OnInit {

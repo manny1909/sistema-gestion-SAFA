@@ -23,22 +23,19 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    UsersComponent,
-    AdminComponent,
-    CreateUserComponent,
-
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule,
-    MatTableModule,
-    MatIconModule,
-    MatDialogModule,
-  ],
-  exports: [
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        SharedModule,
+        MatTableModule,
+        MatIconModule,
+        MatDialogModule,
+        UsersComponent,
+        AdminComponent,
+        CreateUserComponent,
+    ],
+    exports: [
+        RouterModule
+    ]
 })
 export class AdminModule { }

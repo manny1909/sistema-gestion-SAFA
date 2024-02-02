@@ -12,26 +12,24 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [
-    SideNavComponent,
-    accordionSidenavComponent,
-  ],
-  imports: [
-    CommonModule,
-    CdkAccordionModule,
-    MatTableModule,
-    MatIconModule,
-    MatDialogModule,
-    MatSidenavModule,
-    RouterModule,
-  ],
-  exports: [
-    //módulos
-    //componentes
-    SideNavComponent,
-    accordionSidenavComponent,
-    //pipes
-    //directivas
-  ]
+    imports: [
+        CommonModule,
+        CdkAccordionModule,
+        MatTableModule,
+        MatIconModule,
+        MatDialogModule,
+        MatSidenavModule,
+        RouterModule,
+        SideNavComponent,
+        accordionSidenavComponent,
+    ],
+    exports: [
+        //módulos
+        //componentes
+        SideNavComponent,
+        accordionSidenavComponent,
+        //pipes
+        //directivas
+    ]
 })
 export class SharedModule { }
