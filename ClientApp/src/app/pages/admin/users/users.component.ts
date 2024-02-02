@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { MatLegacyTableDataSource as MatTableDataSource, MatLegacyTableModule } from '@angular/material/legacy-table';
+import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CreateUserComponent } from 'src/app/modals/create-user/create-user.component';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -9,7 +10,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
     templateUrl: './users.component.html',
     styleUrls: ['./users.component.scss'],
     standalone: true,
-    imports: [MatLegacyTableModule]
+    imports: [MatTableModule]
 })
 export class UsersComponent implements OnInit {
 

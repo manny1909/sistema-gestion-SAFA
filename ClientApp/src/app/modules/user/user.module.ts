@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { UserComponent } from '../../component/user/user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { SideNavComponent } from 'src/app/component/side-nav/side-nav.component';
 
 
 const routes: Routes = [

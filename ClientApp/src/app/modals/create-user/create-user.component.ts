@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MatLegacyDialogModule } from '@angular/material/legacy-dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @Component({
     selector: 'modal-create-user',
     templateUrl: './create-user.component.html',
     styleUrls: ['./create-user.component.scss'],
     standalone: true,
-    imports: [MatLegacyDialogModule]
+    imports: [MatDialogModule]
 })
 export class CreateUserComponent implements OnInit {
 
