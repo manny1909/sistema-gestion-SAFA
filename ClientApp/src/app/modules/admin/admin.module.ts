@@ -17,7 +17,7 @@ import { accordionSidenavComponent } from 'src/app/component/accordeon-sidenav/a
 import { SharedModule } from '../shared/shared.module';
 const routes: Routes = [
   { path: 'adminUsers', component: UsersComponent },
-  { path: '', redirectTo: 'adminUsers' },
+  { path: '', pathMatch:'full', redirectTo: 'adminUsers' },
   { path: '**', redirectTo: '' },
   // Puedes agregar más rutas según sea necesario
 ];

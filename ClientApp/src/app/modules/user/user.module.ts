@@ -8,7 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
-    path: ''
+    path: '', pathMatch:'full',
   }
   // Puedes agregar más rutas según sea necesario
 ];
