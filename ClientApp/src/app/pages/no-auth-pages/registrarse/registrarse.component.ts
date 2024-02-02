@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
@@ -12,9 +12,9 @@ import Swal from 'sweetalert2';
 })
 export class RegistrarseComponent implements OnInit {
 
-  formRegistrarse:FormGroup = this._fb.group({})
+  formRegistrarse:UntypedFormGroup = this._fb.group({})
 
-  constructor(private _fb:FormBuilder,
+  constructor(private _fb:UntypedFormBuilder,
     private _authService:AuthService,
     private _router:Router) {
       this.buildForms()

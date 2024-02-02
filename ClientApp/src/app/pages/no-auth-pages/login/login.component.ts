@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
@@ -11,8 +11,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  formLogin: FormGroup = this._fb.group({})
-  constructor(private _fb: FormBuilder,
+  formLogin: UntypedFormGroup = this._fb.group({})
+  constructor(private _fb: UntypedFormBuilder,
     private _authService: AuthService,
     private _router: Router) {
     this.buildForms();
