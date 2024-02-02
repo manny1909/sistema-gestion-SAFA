@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SideNavComponent } from 'src/app/component/side-nav/side-nav.component';
 import { accordionSidenavComponent } from 'src/app/component/accordeon-sidenav/accordion-sidenav.component';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatTableModule } from '@angular/material/table';
+import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 
