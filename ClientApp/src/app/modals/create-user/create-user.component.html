@@ -1,13 +1,67 @@
-<h2 mat-dialog-title>Titulo</h2>
-<mat-dialog-content>
-  <h3>Contenido</h3>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium at illo quo nemo libero, numquam officiis quia
-    alias reiciendis doloribus temporibus iusto maxime earum laboriosam, modi dolores autem. Minima accusamus voluptas
-    fugiat sed obcaecati ipsam, itaque dolor recusandae. Quas iure sequi expedita voluptatem ipsa et blanditiis mollitia
-    ut esse ea.
-  </p>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
-</mat-dialog-actions>
+<form [formGroup]="formCreateUser" (submit)="addUser()">
+  <h2 mat-dialog-title>Crear nuevo usuario</h2>
+  <mat-dialog-content>
+    <div class="mb-4">
+      <label for="discord" class="block text-gray-700 text-sm font-bold mb-2">Discord:</label>
+      <input formControlName="discord" id="discord" type="text" placeholder="Ingresa tu Discord"
+        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+      @if(formCreateUser.get('discord')?.touched && formCreateUser.get('discord')?.hasError('required')){
+      <div class="text-red-500 text-xs mt-1">Este campo es
+        obligatorio</div>
+      }
+    </div>
+    <div class="mb-4">
+      <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+      <input formControlName="email" id="email" type="email" placeholder="Ingresa tu Email"
+        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+      @if(formCreateUser.get('email')?.touched && formCreateUser.get('email')?.hasError('required')){
+      <div class="text-red-500 text-xs mt-1">Este campo es
+        obligatorio
+      </div>
+      }
+      @if(formCreateUser.get('email')?.touched && formCreateUser.get('email')?.hasError('email')){
+      <div class="text-red-500 text-xs mt-1">
+        Ingrese un correo valido.
+      </div>
+      }
+    </div>
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
+      <input formControlName="name" id="name" type="text" placeholder="Ingresa tu Nombre"
+        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+      @if(formCreateUser.get('name')?.touched && formCreateUser.get('name')?.hasError('required')){
+      <div class="text-red-500 text-xs mt-1">Este campo es
+        obligatorio
+      </div>
+      }
+    </div>
+    <div class="mb-4">
+      <!-- pendiente por realizar -->
+      <mat-form-field>
+        <mat-label>Roles</mat-label>
+        <mat-select formControlName="roles" multiple>
+          @for (rol of roles; track rol.id) {
+          <mat-option [value]="rol">{{rol.value}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      @if(formCreateUser.get('roles')?.touched && formCreateUser.get('roles')?.hasError('required')){
+      <div class="text-red-500 text-xs mt-1">Este campo es
+        obligatorio
+      </div>
+      }
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-dialog-close class="btn btn-red mx-2">Cancelar</button>
+    <button type="submit" [mat-dialog-close]="formCreateUser.value" cdkFocusInitial
+      class="btn mx-2"
+      [ngClass]="{
+      'btn-green': formCreateUser.valid,
+      'btn-disabled': formCreateUser.invalid
+      }" [disabled]="formCreateUser.invalid">
+      Confirmar
+    </button>
+  </mat-dialog-actions>
+</form>

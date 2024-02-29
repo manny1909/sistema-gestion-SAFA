@@ -1,0 +1,120 @@
+$orange: #d04a02;
+$rose: #db536a;
+$roseDigital: #d93954;
+$red: #e0301e;
+$tangerine: #eb8c00;
+$yellow: #ffb600;
+$white: #ffffff;
+$black: #000000;
+$darkerGrey: #111111;
+$darkGrey: #2d2d2d;
+$mediumGrey: #464646;
+$grey: #7d7d7d;
+$lightGrey: #dedede;
+$green: #175d2d;
+$main: $tangerine;
+$second: $yellow;
+$contact: $lightGrey;
+
+@mixin button-style($background-color, $text-color) {
+    background-color: $background-color !important;
+    color: $text-color !important;
+    border: solid 1px $background-color; // Adjusted border-color
+    font-weight: 500;
+    &:hover:not(.disabled, .btn-disabled) {
+        background-color: $background-color !important;
+        filter: brightness(0.9);
+        cursor: pointer;
+    }
+}
+
+// Estilos para el botón rojo
+.btn-red {
+    @include button-style($red, white);
+}
+
+// Estilos para el botón rosa
+.btn-rose {
+    @include button-style($rose, white);
+}
+
+// Estilos para el botón naranja
+.btn-orange {
+    @include button-style($tangerine, black);
+}
+
+// Estilos para el botón verde
+.btn-green {
+    @include button-style($green, white);
+}
+
+// Estilos para el botón amarillo
+.btn-yellow {
+    @include button-style($yellow, black);
+}
+
+// Estilos para el botón blanco
+.btn-white {
+    @include button-style($white, #000000);
+}
+
+// Estilos para el botón gris claro
+.btn-lightgrey {
+    @include button-style($lightGrey, #000000);
+}
+
+// Estilos para el botón gris
+.btn-grey {
+    @include button-style($grey, white);
+}
+
+// Estilos para el botón gris oscuro
+.btn-darkgrey {
+    @include button-style($darkGrey, white);
+    opacity: 0.85;
+}
+
+// Estilos para el botón deshabilitado
+.btn-disabled {
+  @include button-style($grey, white);
+  opacity: 0.5;
+
+    &:hover {
+        cursor: default !important;
+        filter: none;
+    }
+}
+
+.btn {
+  padding: .25rem 0.75rem !important;
+  font-size: .875rem;
+  line-height: 1.5;
+  min-height: 30px;
+  cursor: pointer;
+}
+// Estilos para el botón pequeño
+.btn-sm {
+    padding: .25rem 0.75rem !important;
+    font-size: .875rem;
+    line-height: 1.5;
+    min-height: 30px;
+    cursor: pointer;
+}
+
+// Estilos para el botón pequeño deshabilitado
+.btn-sm.disabled,
+.btn-sm.disabled:hover {
+    cursor: default !important;
+    filter: none;
+    opacity: .7;
+}
+
+// Estilos para el botón de cierre del modal
+.btn-close {
+    color: $red;
+    margin-bottom: .2rem;
+
+    &:hover:not(.disabled) {
+        filter: brightness(0.7);
+    }
+}
