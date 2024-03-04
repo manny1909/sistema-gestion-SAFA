@@ -2,17 +2,8 @@ import bcrypt from 'bcrypt';
 
 // Asegúrate de importar tu modelo de mongoose llamado User
 import { userModel } from './../models/user';
-import { User } from '../interfaces/User';
-
-interface UserCreate {
-  // Define la estructura de un usuario al ser creado
-  // Asegúrate de ajustar esto según la estructura real de tu modelo User de Mongoose
-  name: string;
-  email: string;
-  password: string;
-  state: number
-  // ... otros campos
-}
+import { User, UserCreate } from '../interfaces/User';
+import { roleModel } from '../models/role';
 
 class UserService {
   private users: UserCreate[] = [];
@@ -21,9 +12,10 @@ class UserService {
     return await userModel.findByIdAndUpdate(_id, value)
   }
   async create(user: UserCreate): Promise<UserCreate> {
+    const roles = await roleModel.where({ name: { $in: user.roles } }).catch(err => console.log(err)); 
+    user.roles = roles || []
     user.password = await bcrypt.hash(user.password, 10);
     const response = await userModel.create(user);
-    console.log(response)
     return response;
   }
 

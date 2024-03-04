@@ -27,9 +27,24 @@ Content-Type: application/json
 {
     "user":
         {
-        "name": "Galileu Goodfellaaa",
-        "email": "galileooo@gmail.com",
-        "password": "SAFA2022"
+            "discord": "pruebads",
+            "name": "Galileu Goodfellaaa",
+            "email": "galileooo1@gmail.com",
+            "password": "SAFA2022"
+        }
+}
+
+POST http://0.0.0.0:3000/api/v1/user/create/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NTlkZjk2NTM0ZWMzZDBlOWU5YjBkZWIiLCJyb2xlcyI6W3siX2lkIjoiNjU5ZGY5NjUzNGVjM2QwZTllOWIwZGU1IiwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJsZXZlbCI6OTl9LHsiX2lkIjoiNjU5ZGY5NjUzNGVjM2QwZTllOWIwZGU2IiwibmFtZSI6ImN1c3RvbWVyIiwibGV2ZWwiOjF9LHsiX2lkIjoiNjU5ZGY5NjUzNGVjM2QwZTllOWIwZGU3IiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBUEQiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5ZGY5NjUzNGVjM2QwZTllOWIwZGU4IiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIFNBRkEiLCJsZXZlbCI6MjB9LHsiX2lkIjoiNjU5ZGY5NjUzNGVjM2QwZTllOWIwZGU5IiwibmFtZSI6IkzDrWRlciBnZW5lcmFsIEZCSSIsImxldmVsIjoyMH1dLCJpYXQiOjE3MDk0MTE0MTIsImV4cCI6MTcwOTQ5NzgxMn0.FEepT1yYYI5BaIW9NZ6XC9STAKUpC-Q2ITcIlFPoxJc
+
+{
+    "user":
+        {
+            "discord": "pruebads",
+            "name": "Galileu Goodfellaaa3",
+            "email": "galileooo2@gmail.com",
+            "roles": ["user"]
         }
 }
 

@@ -41,8 +41,8 @@ export const authController = {
     signUp: async (req: any, res: Response) => {
         try {
             const data: any = req.body.user
-            const { name, email, password } = data
-            const usuario = await _userService.create({ name, email, password, state: 0 })
+            const { name, email, password, discord } = data
+            const usuario = await _userService.create({ name, email, password, state: 0, discord, roles: ['user'] })
             res.json({ usuario, ok: true })
 
         } catch (error) {

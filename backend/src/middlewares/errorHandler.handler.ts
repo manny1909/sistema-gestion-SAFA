@@ -7,6 +7,7 @@ function logErrors(error: any, req: Request, res: Response, next: NextFunction):
 }
 
 function errorHandler(error: any, req: Request, res: Response, next: NextFunction): void {
+  console.log('pase por aca')
   if (boom.isBoom(error)) {
     res.status(error.output.statusCode).json(error.output.payload);
   } else {

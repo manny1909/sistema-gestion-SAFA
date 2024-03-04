@@ -12,3 +12,14 @@ export interface User {
     observations: string
     roles: any[]
 }
+export interface UserCreate {
+    // Define la estructura de un usuario al ser creado
+    // Asegúrate de ajustar esto según la estructura real de tu modelo User de Mongoose
+    discord: string;
+    name: string;
+    email: string;
+    password: string;
+    state: number
+    roles: any[]
+    // ... otros campos
+  }
