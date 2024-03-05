@@ -14,7 +14,7 @@ export const authController = {
         if (!email || !password) {
             return boom.badData()
         }
-        const user:User | null = await _userService.findByEmail(email)
+        const user: User | null = await _userService.findByEmail(email)
         if (!user) {
             return boom.notFound('User not found')
         }
@@ -25,7 +25,7 @@ export const authController = {
         const response = _authService.login(user._id, user.roles)
         user.token = response.token
         _userService.findByIdAndUpdate(user._id, { token: response.token })
-        return res.status(200).json({...response, roles: user.roles})
+        return res.status(200).json({ ...response, roles: user.roles })
     },
     logout: async (req: any, res: Response) => {
         try {
@@ -65,10 +65,9 @@ export const authController = {
         return res.json(response)
     },
     getUserByToken: async (req: any, res: any) => {
-        const payload = req.user
-        const _id = payload.sub
-        const user = await _userService.findOne(_id)
-        res.status(200).json({user})
+        const { id } = req.body
+        const user = await _userService.findOne(id)
+        res.status(200).json({ user })
     },
-    
+
 }

@@ -43,7 +43,6 @@ throw new Error('Method not implemented.');
   getAllUsers() {
     this._usuarioService.getUsers().subscribe((_usuarios: any[]) => {
       this.usuarios = _usuarios
-      console.log(this.usuarios);
       this.dataTableUsuarios.data = this.usuarios;
     })
   }

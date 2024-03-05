@@ -2,7 +2,7 @@ import express from 'express'
 import passport from 'passport'
 import { authController } from '../controller/auth.controller'
 import validatorHandler from '../middlewares/validator.handler'
-import { signUpUserScheme } from '../schemas/user.schema'
+import { getUserScheme, signUpUserScheme } from '../schemas/user.schema'
 const auth = express()
 auth.route('/signIn')
     .post((req, res) => {
@@ -30,6 +30,7 @@ auth.route('/refresh')
 auth.route('/getUserByToken')
     .post(
         passport.authenticate('jwt', { session: false }),
+        validatorHandler(getUserScheme, 'body'),
         (req, res) => {
             authController.getUserByToken(req, res)
         })

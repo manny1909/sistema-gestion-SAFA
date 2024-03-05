@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/User';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class StorageService {
   }
   getUser(){
     return this.usuario
+  }
+  getPayloadJwt(token:string){
+    const payload: any = jwtDecode(token)
+    return payload || undefined
   }
   setUser(usuario: User) {
     this.usuario = usuario

@@ -17,7 +17,7 @@ export class AuthService {
   constructor(private _http: HttpClient, private _storageService: StorageService, private _router: Router) {
   }
   registrarse(user: any): Observable<any> {
-    return this._http.post(environment.apiURL+'auth/signUp',{user})
+    return this._http.post(environment.apiURL + 'auth/signUp', { user })
   }
   login(loginForm: { email: string, pass: string }): Observable<any> {
     return this._http.post<any>(environment.apiURL + 'auth/signIn/', loginForm).pipe(
@@ -25,10 +25,10 @@ export class AuthService {
         if (response.token) {
           this._storageService.setToken(response.token)
         }
-        if(response.roles && response.roles instanceof Array){
-          const roles: Array<string> = response.roles.map((x:any)=> x.name)
-          const _route = roles.findIndex(x=>x =='Administrador')!=-1 ? 'admin' : 'user'
-           this._router.navigate([_route])
+        if (response.roles && response.roles instanceof Array) {
+          const roles: Array<string> = response.roles.map((x: any) => x.name)
+          const _route = roles.findIndex(x => x == 'Administrador') != -1 ? 'admin' : 'user'
+          this._router.navigate([_route])
         }
       }),
       catchError(this.handleError<User>('login'))
@@ -42,8 +42,8 @@ export class AuthService {
       })
     )
   }
-  getUserByToken(): Observable<any> {
-    return this._http.post<any>(environment.apiURL + 'auth/getUserByToken', {}).pipe(
+  getUserById(id: string): Observable<any> {
+    return this._http.post<any>(environment.apiURL + 'auth/getUserByToken', { id }).pipe(
       tap((response) => {
         const user: User = response.user;
         if (user) {
@@ -97,10 +97,15 @@ export class AuthService {
   }
 
   initialize(): void {
-    console.log('Inicializando AuthService');
     const _token = this._storageService.getToken();
     if (_token) {
-      this.getUserByToken().subscribe();
+      const payload = this._storageService.getPayloadJwt(_token);
+      if (!payload || !payload.sub) {
+        console.error('payload or sub are undefined');
+        return
+      }
+      const id = payload.sub;
+      this.getUserById(id).subscribe();
     }
   }
 

@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const id = Joi.number();
+const id = Joi.string();
 const name = Joi.string().min(3).max(45);
 const discord = Joi.string().min(3).max(45);
 const email = Joi.string();
